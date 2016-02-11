@@ -41,11 +41,6 @@ public struct TVOSButtonImage {
   public var image: UIImage?
   public var gravity: TVOSButtonImageGravity = .Fill
   public var shadow: TVOSButtonShadow?
-
-  public func createImageView() -> UIImageView {
-    let imageView = UIImageView(frame: CGRect.zero)
-    return imageView
-  }
 }
 
 // MARK: - TVOSButtonText
@@ -57,11 +52,6 @@ public struct TVOSButtonText {
   public var font: UIFont = UIFont.systemFontOfSize(15)
   public var alignment: NSTextAlignment = .Center
   public var shadow: TVOSButtonShadow?
-
-  public func createLabel() -> UILabel {
-    let label = UILabel(frame: CGRect.zero)
-    return label
-  }
 }
 
 // MARK: - TVOSButton
@@ -85,6 +75,7 @@ public typealias TVOSButtonStyleForState = (tvosButtonState: TVOSButtonState) ->
 
 public class TVOSButton: UIButton {
 
+  private var tvosContainerView: UIView!
   private var tvosImageView: UIImageView!
   private var tvosTextLabel: UILabel!
   private var tvosTitleLabel: UILabel!
@@ -130,8 +121,11 @@ public class TVOSButton: UIButton {
   }
 
   private func commonInit() {
-    tvosButtonStateDidChange()
+    // setup subviews
+    // add state observer
     addObserver(self, forKeyPath: "state", options: .New, context: nil)
+    // finalize
+    tvosButtonStateDidChange()
   }
 }
 
@@ -163,25 +157,24 @@ public extension TVOSButton {
   }
 }
 
-// MARK: - Layout
-
-public extension TVOSButton {
-
-  public override func layoutSubviews() {
-    super.layoutSubviews()
-    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosState) {
-      tvosImageView = style.image?.createImageView() ?? UIImageView(frame: CGRect.zero)
-      tvosTextLabel = style.text?.createLabel() ?? UILabel(frame: CGRect.zero)
-      tvosTitleLabel = style.title?.createLabel() ?? UILabel(frame: CGRect.zero)
-    }
-  }
-}
-
 // MARK: - TVOSButtonState
 
 public extension TVOSButton {
 
   private func tvosButtonStateDidChange() {
+    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosState) {
+      applyStyle(style)
+    }
+    setNeedsLayout()
     layoutIfNeeded()
+  }
+}
+
+// MARK: - TVOSButtonStyle
+
+public extension TVOSButton {
+
+  private func applyStyle(style: TVOSButtonStyle) {
+
   }
 }
