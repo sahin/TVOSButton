@@ -41,6 +41,11 @@ public struct TVOSButtonImage {
   public var image: UIImage?
   public var gravity: TVOSButtonImageGravity = .Fill
   public var shadow: TVOSButtonShadow?
+
+  func applyImage(onImageView imageView: UIImageView) {
+    shadow?.applyShadow(onLayer: imageView.layer)
+    imageView.image = image
+  }
 }
 
 // MARK: - TVOSButtonText
@@ -52,6 +57,18 @@ public struct TVOSButtonText {
   public var font: UIFont = UIFont.systemFontOfSize(15)
   public var alignment: NSTextAlignment = .Center
   public var shadow: TVOSButtonShadow?
+
+  func applyText(onLabel label: UILabel) {
+    shadow?.applyShadow(onLayer: label.layer)
+    if let att = attributedText {
+      label.attributedText = att
+    } else {
+      label.text = text
+      label.textColor = color
+      label.font = font
+      label.textAlignment = alignment
+    }
+  }
 }
 
 // MARK: - TVOSButton
@@ -122,6 +139,18 @@ public class TVOSButton: UIButton {
 
   private func commonInit() {
     // setup subviews
+    tvosContainerView = UIView()
+    tvosContainerView.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(tvosContainerView)
+    tvosImageView = UIImageView()
+    tvosImageView.translatesAutoresizingMaskIntoConstraints = false
+    tvosContainerView.addSubview(tvosImageView)
+    tvosTextLabel = UILabel()
+    tvosTextLabel.translatesAutoresizingMaskIntoConstraints = false
+    tvosContainerView.addSubview(tvosTextLabel)
+    tvosTitleLabel = UILabel()
+    tvosTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+    tvosContainerView.addSubview(tvosTitleLabel)
     // add state observer
     addObserver(self, forKeyPath: "state", options: .New, context: nil)
     // finalize
@@ -169,12 +198,16 @@ public extension TVOSButton {
     layoutIfNeeded()
   }
 
+  private func setupConstraints() {
+    // TODO
+  }
+
   public override func updateConstraints() {
     removeConstraints(constraints)
     tvosImageView.removeConstraints(tvosImageView.constraints)
     tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
     tvosTitleLabel.removeConstraints(tvosTitleLabel.constraints)
-    // TODO: Add Constraints
+    setupConstraints()
     super.updateConstraints()
   }
 }
@@ -184,6 +217,8 @@ public extension TVOSButton {
 public extension TVOSButton {
 
   private func applyStyle(style: TVOSButtonStyle) {
-    // TODO: Apply Style
+    style.image?.applyImage(onImageView: tvosImageView)
+    style.text?.applyText(onLabel: tvosTextLabel)
+    style.title?.applyText(onLabel: tvosTitleLabel)
   }
 }
