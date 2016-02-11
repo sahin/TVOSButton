@@ -30,21 +30,26 @@ public struct TVOSButtonShadow {
 
 public enum TVOSButtonImageGravity {
   case Fill
-  case Fit(size: CGSize?, origin: CGPoint?, offset: UIEdgeInsets?)
-  case Top(size: CGSize?, origin: CGPoint?, offset: UIEdgeInsets?)
-  case Left(size: CGSize?, origin: CGPoint?, offset: UIEdgeInsets?)
-  case Right(size: CGSize?, origin: CGPoint?, offset: UIEdgeInsets?)
-  case Bottom(size: CGSize?, origin: CGPoint?, offset: UIEdgeInsets?)
+  case Fit(size: CGSize?, offset: UIEdgeInsets?)
+  case Top(size: CGSize?, offset: UIEdgeInsets?)
+  case Left(size: CGSize?, offset: UIEdgeInsets?)
+  case Right(size: CGSize?, offset: UIEdgeInsets?)
+  case Bottom(size: CGSize?, offset: UIEdgeInsets?)
 }
 
 public struct TVOSButtonImage {
   public var image: UIImage?
   public var gravity: TVOSButtonImageGravity = .Fill
   public var shadow: TVOSButtonShadow?
+  public var cornerRadius: CGFloat = 0
+  public var backgroundColor: UIColor?
 
   func applyImage(onImageView imageView: UIImageView) {
     shadow?.applyShadow(onLayer: imageView.layer)
     imageView.image = image
+    imageView.backgroundColor = backgroundColor
+    imageView.layer.masksToBounds = true
+    imageView.layer.cornerRadius = cornerRadius
   }
 }
 
@@ -71,7 +76,7 @@ public struct TVOSButtonText {
   }
 }
 
-// MARK: - TVOSButton
+// MARK: - TVOSButtonState
 
 public enum TVOSButtonState {
   case Normal
@@ -81,11 +86,27 @@ public enum TVOSButtonState {
   case Disabled
 }
 
+// MARK: - TVOSButtonStyle
+
 public struct TVOSButtonStyle {
   public var image: TVOSButtonImage?
   public var text: TVOSButtonText?
   public var title: TVOSButtonText?
+  public var shadow: TVOSButtonShadow?
+  public var cornerRadius: CGFloat = 0
+  public var backgroundColor: UIColor?
+
+  public var button: TVOSButtonImage {
+    return TVOSButtonImage(
+      image: nil,
+      gravity: .Fill,
+      shadow: shadow,
+      cornerRadius: cornerRadius,
+      backgroundColor: backgroundColor)
+  }
 }
+
+// MARK: - TVOSButton
 
 public typealias TVOSButtonStateDidChange = (tvosButtonState: TVOSButtonState) -> Void
 public typealias TVOSButtonStyleForState = (tvosButtonState: TVOSButtonState) -> TVOSButtonStyle
@@ -186,7 +207,7 @@ public extension TVOSButton {
   }
 }
 
-// MARK: - TVOSButtonState
+// MARK: - State
 
 public extension TVOSButton {
 
@@ -198,21 +219,368 @@ public extension TVOSButton {
     layoutIfNeeded()
   }
 
-  private func setupConstraints() {
-    // TODO
+  private func setupConstraintsForStyle(style: TVOSButtonStyle) {
+    // Setup container
+    let containerHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "H:|[container]|",
+      options: NSLayoutFormatOptions(rawValue: 0),
+      metrics: nil,
+      views: ["container": tvosContainerView])
+    addConstraints(containerHorizontalConstraints)
+    let containerVertivalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "V:|[container]|",
+      options: NSLayoutFormatOptions(rawValue: 0),
+      metrics: nil,
+      views: ["container": tvosContainerView])
+    addConstraints(containerVertivalConstraints)
+
+    // Setup content
+    if let imageStyle = style.image {
+      switch imageStyle.gravity {
+      case .Fill:
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[image]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[image]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "image": tvosImageView,
+            "title": tvosTitleLabel
+          ])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFill
+
+      case .Fit(let size, let offset):
+        // size metrics
+        let width = size?.width ?? nil
+        let widthFormat = width == nil ? "" : "(\(width!))"
+        let height = size?.height ?? nil
+        let heightFormat = height == nil ? "" : "(\(height!))"
+        // constraints
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|-left-[image\(widthFormat)]-right-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "left": offset?.left ?? 0,
+            "right": offset?.right ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|-top-[image\(heightFormat)]-bottom-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "heightFormat": heightFormat,
+            "top": offset?.top ?? 0,
+            "bottom": offset?.bottom ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFit
+
+      case .Top(let size, let offset):
+        // size metrics
+        let width = size?.width ?? nil
+        let widthFormat = width == nil ? "" : "(\(width!))"
+        let height = size?.height ?? nil
+        let heightFormat = height == nil ? "" : "(\(height!))"
+        // constraints
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|-left-[image\(widthFormat)]-right-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "left": offset?.left ?? 0,
+            "right": offset?.right ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|-top-[image\(heightFormat)]-bottom-[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "heightFormat": heightFormat,
+            "top": offset?.top ?? 0,
+            "bottom": offset?.bottom ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFit
+
+      case .Left(let size, let offset):
+        // size metrics
+        let width = size?.width ?? nil
+        let widthFormat = width == nil ? "" : "(\(width!))"
+        let height = size?.height ?? nil
+        let heightFormat = height == nil ? "" : "(\(height!))"
+        // constraints
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|-left-[image\(widthFormat)]-right-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "left": offset?.left ?? 0,
+            "right": offset?.right ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|-top-[image\(heightFormat)]-bottom-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "heightFormat": heightFormat,
+            "top": offset?.top ?? 0,
+            "bottom": offset?.bottom ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFit
+
+      case .Right(let size, let offset):
+        // size metrics
+        let width = size?.width ?? nil
+        let widthFormat = width == nil ? "" : "(\(width!))"
+        let height = size?.height ?? nil
+        let heightFormat = height == nil ? "" : "(\(height!))"
+        // constraints
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|-left-[image\(widthFormat)]-right-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "left": offset?.left ?? 0,
+            "right": offset?.right ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|-top-[image\(heightFormat)]-bottom-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "heightFormat": heightFormat,
+            "top": offset?.top ?? 0,
+            "bottom": offset?.bottom ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFit
+
+      case .Bottom(let size, let offset):
+        // size metrics
+        let width = size?.width ?? nil
+        let widthFormat = width == nil ? "" : "(\(width!))"
+        let height = size?.height ?? nil
+        let heightFormat = height == nil ? "" : "(\(height!))"
+        // constraints
+        let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|-left-[image\(widthFormat)]-right-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "left": offset?.left ?? 0,
+            "right": offset?.right ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|-top-[image\(heightFormat)]-bottom-|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: [
+            "heightFormat": heightFormat,
+            "top": offset?.top ?? 0,
+            "bottom": offset?.bottom ?? 0
+          ],
+          views: ["image": tvosImageView])
+        let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[text]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["text": tvosTextLabel])
+        let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:|[text]-[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: [
+            "text": tvosTextLabel,
+            "title": tvosTitleLabel
+          ])
+        let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+          "H:|[title]|",
+          options: NSLayoutFormatOptions(rawValue: 0),
+          metrics: nil,
+          views: ["title": tvosTitleLabel])
+        tvosContainerView.addConstraints(imageHorizontalConstraints)
+        tvosContainerView.addConstraints(imageVerticalConstraints)
+        tvosContainerView.addConstraints(textHorizontalConstraints)
+        tvosContainerView.addConstraints(textVerticalConstraints)
+        tvosContainerView.addConstraints(titleHorizontalConstraints)
+        tvosImageView.contentMode = .ScaleAspectFit
+      }
+    } else {
+      let imageHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+        "H:|[image]|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: ["image": tvosImageView])
+      let imageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+        "V:|[image]-[title]|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: [
+          "image": tvosImageView,
+          "title": tvosTitleLabel
+        ])
+      let textHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+        "H:|[text]|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: ["text": tvosTextLabel])
+      let textVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+        "V:|[text]-[title]|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: [
+          "text": tvosTextLabel,
+          "title": tvosTitleLabel
+        ])
+      let titleHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+        "H:|[title]|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: ["title": tvosTitleLabel])
+      tvosContainerView.addConstraints(imageHorizontalConstraints)
+      tvosContainerView.addConstraints(imageVerticalConstraints)
+      tvosContainerView.addConstraints(textHorizontalConstraints)
+      tvosContainerView.addConstraints(textVerticalConstraints)
+      tvosContainerView.addConstraints(titleHorizontalConstraints)
+    }
   }
 
-  public override func updateConstraints() {
+  private func setupConstraints() {
+    // Remove constraints
     removeConstraints(constraints)
+    tvosContainerView.removeConstraints(tvosContainerView.constraints)
     tvosImageView.removeConstraints(tvosImageView.constraints)
     tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
     tvosTitleLabel.removeConstraints(tvosTitleLabel.constraints)
+    // Add constraints for style
+    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosState) {
+      setupConstraintsForStyle(style)
+    }
+  }
+
+  public override func updateConstraints() {
     setupConstraints()
     super.updateConstraints()
   }
 }
 
-// MARK: - TVOSButtonStyle
+// MARK: - Style
 
 public extension TVOSButton {
 
