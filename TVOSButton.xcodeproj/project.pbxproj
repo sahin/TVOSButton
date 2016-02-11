@@ -10,6 +10,7 @@
 		B25D2F691C6C54E800C3DAE4 /* TVOSButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B25D2F681C6C54E800C3DAE4 /* TVOSButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B25D2F701C6C54E900C3DAE4 /* TVOSButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D2F651C6C54E800C3DAE4 /* TVOSButton.framework */; };
 		B25D2F751C6C54E900C3DAE4 /* TVOSButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D2F741C6C54E900C3DAE4 /* TVOSButtonTests.swift */; };
+		B25D2F801C6C551100C3DAE4 /* TVOSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		B25D2F6F1C6C54E900C3DAE4 /* TVOSButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVOSButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25D2F741C6C54E900C3DAE4 /* TVOSButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOSButtonTests.swift; sourceTree = "<group>"; };
 		B25D2F761C6C54E900C3DAE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVOSButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				B25D2F681C6C54E800C3DAE4 /* TVOSButton.h */,
 				B25D2F6A1C6C54E800C3DAE4 /* Info.plist */,
+				B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */,
 			);
 			path = TVOSButton;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25D2F801C6C551100C3DAE4 /* TVOSButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +310,7 @@
 		B25D2F7A1C6C54E900C3DAE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -316,12 +321,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B25D2F7B1C6C54E900C3DAE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
