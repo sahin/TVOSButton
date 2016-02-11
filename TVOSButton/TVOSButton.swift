@@ -168,6 +168,15 @@ public extension TVOSButton {
     setNeedsLayout()
     layoutIfNeeded()
   }
+
+  public override func updateConstraints() {
+    removeConstraints(constraints)
+    tvosImageView.removeConstraints(tvosImageView.constraints)
+    tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
+    tvosTitleLabel.removeConstraints(tvosTitleLabel.constraints)
+    // TODO: Add Constraints
+    super.updateConstraints()
+  }
 }
 
 // MARK: - TVOSButtonStyle
@@ -175,6 +184,6 @@ public extension TVOSButton {
 public extension TVOSButton {
 
   private func applyStyle(style: TVOSButtonStyle) {
-
+    // TODO: Apply Style
   }
 }
