@@ -16,6 +16,10 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    // Add target
+    button.addTarget(self, action: "tvosButtonPressed", forControlEvents: .PrimaryActionTriggered)
+
+    // Setup style
     button.tvosButtonStyleForStateAction = { state in
       switch state {
       case .Focused:
@@ -56,6 +60,7 @@ class ViewController: UIViewController {
       }
     }
 
+    // Setup content
     button.tvosButtonStateDidChangeAction = { state in
       switch state {
       case .Focused:
@@ -69,5 +74,10 @@ class ViewController: UIViewController {
         self.button.badgeImage = nil
       }
     }
+  }
+
+  // Event handler
+  func tvosButtonPressed() {
+    print("tvos button pressed")
   }
 }
