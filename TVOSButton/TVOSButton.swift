@@ -42,18 +42,19 @@ public enum TVOSButtonState: CustomStringConvertible {
 // MARK: - TVOSButtonStyle
 
 public struct TVOSButtonStyle {
+
   // Button Style
   public var backgroundColor: UIColor?
   public var backgroundImage: UIImage?
   public var cornerRadius: CGFloat?
   public var scale: CGFloat?
   public var shadow: TVOSButtonShadow?
-  // Badge Style
-  public var badge: TVOSButtonImage?
-  // Text Label Style
-  public var text: TVOSButtonLabel?
-  // Title Label Style
-  public var title: TVOSButtonLabel?
+
+  // Button Content Style
+  public var contentView: UIView?
+  public var badgeStyle: TVOSButtonImage?
+  public var textStyle: TVOSButtonLabel?
+  public var titleStyle: TVOSButtonLabel?
 
   public func applyStyle(onButton button: TVOSButton) {
     // button
@@ -67,20 +68,28 @@ public struct TVOSButtonStyle {
     } else {
       TVOSButtonShadow.resetStyle(onLayer: button.tvosButton.layer)
     }
+    // content view
+    if let contentView = contentView {
+      button.tvosCustomContentView.addSubview(contentView)
+    } else {
+      for subview in button.tvosCustomContentView.subviews {
+        subview.removeFromSuperview()
+      }
+    }
     // badge
-    if let badge = badge {
+    if let badge = badgeStyle {
       badge.applyStyle(onImageView: button.tvosBadge)
     } else {
       TVOSButtonImage.resetStyle(onImageView: button.tvosBadge)
     }
     // text
-    if let text = text {
+    if let text = textStyle {
       text.applyStyle(onLabel: button.tvosTextLabel)
     } else {
       TVOSButtonLabel.resetStyle(onLabel: button.tvosTextLabel)
     }
     // title
-    if let title = title {
+    if let title = titleStyle {
       title.applyStyle(onLabel: button.tvosTitleLabel)
     } else {
       TVOSButtonLabel.resetStyle(onLabel: button.tvosTitleLabel)
@@ -93,41 +102,62 @@ public struct TVOSButtonStyle {
     cornerRadius: CGFloat? = nil,
     scale: CGFloat? = nil,
     shadow: TVOSButtonShadow? = nil,
-    badge: TVOSButtonImage? = nil,
-    text: TVOSButtonLabel? = nil,
-    title: TVOSButtonLabel? = nil) {
+    contentView: UIView? = nil,
+    badgeStyle: TVOSButtonImage? = nil,
+    textStyle: TVOSButtonLabel? = nil,
+    titleStyle: TVOSButtonLabel? = nil) {
       self.backgroundColor = backgroundColor
       self.backgroundImage = backgroundImage
       self.cornerRadius = cornerRadius
       self.scale = scale
       self.shadow = shadow
-      self.badge = badge
-      self.text = text
-      self.title = title
+      self.contentView = contentView
+      self.badgeStyle = badgeStyle
+      self.textStyle = textStyle
+      self.titleStyle = titleStyle
   }
 }
 
 // MARK: - TVOSButton
 
-public typealias TVOSButtonDidPressed = (tvosButton: TVOSButton) -> Void
 public typealias TVOSButtonStateDidChange = (tvosButtonState: TVOSButtonState) -> Void
 public typealias TVOSButtonStyleForState = (tvosButtonState: TVOSButtonState) -> TVOSButtonStyle
 
 public class TVOSButton: UIButton {
 
-  // MARK: Properties
+  // MARK: Private Properties
 
   private var tvosButton: UIView!
   private var tvosButtonBackgroundImageView: UIImageView!
+  private var tvosCustomContentView: UIView!
   private var tvosBadge: UIImageView!
   private var tvosTextLabel: UILabel!
   private var tvosTitleLabel: UILabel!
-
   private var tvosTitleLabelTopConstraint: NSLayoutConstraint!
 
   private(set) var tvosButtonState: TVOSButtonState = .Normal {
     didSet {
       tvosButtonStateDidChange()
+    }
+  }
+
+  // MARK: Public Properties
+
+  public var textLabelText: String? {
+    didSet {
+      tvosTextLabel.text = textLabelText
+    }
+  }
+
+  public var titleLabelText: String? {
+    didSet {
+      tvosTitleLabel.text = titleLabelText
+    }
+  }
+
+  public var badgeImage: UIImage? {
+    didSet {
+      tvosBadge.image = badgeImage
     }
   }
 
@@ -144,8 +174,6 @@ public class TVOSButton: UIButton {
   }
 
   // MARK: Actions
-
-  public var tvosButtonDidPressedAction: TVOSButtonDidPressed?
 
   public var tvosButtonStateDidChangeAction: TVOSButtonStateDidChange? {
     didSet {
@@ -192,6 +220,10 @@ public class TVOSButton: UIButton {
     tvosButtonBackgroundImageView = UIImageView()
     tvosButtonBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
     tvosButton.addSubview(tvosButtonBackgroundImageView)
+    // tvosCustomContentView
+    tvosCustomContentView = UIView()
+    tvosCustomContentView.translatesAutoresizingMaskIntoConstraints = false
+    tvosButton.addSubview(tvosCustomContentView)
     // tvosBadge
     tvosBadge = UIImageView()
     tvosBadge.translatesAutoresizingMaskIntoConstraints = false
@@ -207,6 +239,7 @@ public class TVOSButton: UIButton {
     // add button constraints
     tvosButton.fill(toView: self)
     tvosButtonBackgroundImageView.fill(toView: tvosButton)
+    tvosCustomContentView.fill(toView: tvosButton)
     // add title constraints
     tvosTitleLabel.fillHorizontal(toView: self)
     tvosTitleLabel.pinHeight(50)
@@ -255,7 +288,7 @@ public extension TVOSButton {
 
 public extension TVOSButton {
 
-  private func setupButtonContentConstraintsForImage(image: TVOSButtonImage?) {
+  private func setupButtonContentConstraintsForBadgeStyle(badge: TVOSButtonImage?) {
     // default constraints
     func setupDefaultConstraints() {
       tvosBadge.contentMode = .ScaleAspectFit
@@ -263,9 +296,13 @@ public extension TVOSButton {
       tvosTextLabel.fill(toView: tvosButton)
     }
 
+    // Remove constraints
+    tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
+    tvosBadge.removeConstraints(tvosBadge.constraints)
+
     // get style
-    guard let image = image else { return setupDefaultConstraints() }
-    let style = image.getStyle()
+    guard let badge = badge else { return setupDefaultConstraints() }
+    let style = badge.getStyle()
     let gravity = style.gravity
     let size = style.size
     let offsets = style.offsets
@@ -358,18 +395,10 @@ public extension TVOSButton {
     }
   }
 
-  private func setupConstraints() {
-    // Remove constraints
-    tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
-    tvosBadge.removeConstraints(tvosBadge.constraints)
-    // Add constraints for style
-    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
-      setupButtonContentConstraintsForImage(style.badge)
-    }
-  }
-
   public override func updateConstraints() {
-    setupConstraints()
+    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
+      setupButtonContentConstraintsForBadgeStyle(style.badgeStyle)
+    }
     super.updateConstraints()
   }
 }

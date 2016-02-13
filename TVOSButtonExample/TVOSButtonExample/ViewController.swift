@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     button.tvosButtonStyleForStateAction = { state in
       switch state {
       case .Focused:
@@ -23,20 +24,24 @@ class ViewController: UIViewController {
           backgroundImage: nil,
           cornerRadius: 10,
           scale: 1.1,
-          shadow: .Focused,
-          badge: nil,
-          text: TVOSButtonLabel.DefaultText(text: "Focused", color: UIColor.blackColor()),
-          title: TVOSButtonLabel.DefaultTitle(title: "Title", color: nil))
+          shadow: TVOSButtonShadow.Focused,
+          contentView: nil,
+          badgeStyle: nil,
+          textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
+          titleStyle: nil)
+
       case .Highlighted:
         return TVOSButtonStyle(
           backgroundColor: UIColor.whiteColor(),
           backgroundImage: nil,
           cornerRadius: 10,
-          scale: 1.05,
-          shadow: nil,
-          badge: nil,
-          text: TVOSButtonLabel.DefaultText(text: "Highlighted", color: UIColor.blackColor()),
-          title: nil)
+          scale: 0.9, 
+          shadow: TVOSButtonShadow.Highlighted, 
+          contentView: nil,
+          badgeStyle: nil, 
+          textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
+          titleStyle: nil)
+
       default:
         return TVOSButtonStyle(
           backgroundColor: UIColor.redColor(),
@@ -44,9 +49,24 @@ class ViewController: UIViewController {
           cornerRadius: 10,
           scale: nil,
           shadow: nil,
-          badge: TVOSButtonImage.Left(image: UIImage(named: "share")!),
-          text: TVOSButtonLabel.DefaultText(text: "Button", color: nil),
-          title: TVOSButtonLabel.DefaultTitle(title: "Title", color: nil))
+          contentView: nil,
+          badgeStyle: nil,
+          textStyle: TVOSButtonLabel.DefaultText(color: UIColor.whiteColor()), 
+          titleStyle: nil)
+      }
+    }
+
+    button.tvosButtonStateDidChangeAction = { state in
+      switch state {
+      case .Focused:
+        self.button.textLabelText = "Focused"
+        self.button.badgeImage = nil
+      case .Highlighted:
+        self.button.textLabelText = "High"
+        self.button.badgeImage = UIImage(named: "share")
+      default:
+        self.button.textLabelText = "Button"
+        self.button.badgeImage = nil
       }
     }
   }
