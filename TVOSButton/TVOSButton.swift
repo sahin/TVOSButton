@@ -274,9 +274,9 @@ public extension TVOSButton {
         case (.Some(let s), .None):
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
-          tvosBadge.pinTop(inView: nil, toView: tvosButton, withInset: offsets?.top ?? 0)
+          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
           tvosBadge.fillHorizontal(toView: tvosButton, withInset: offsets?.left ?? 0)
-          tvosBadge.pinToTop(inView: tvosButton, toView: tvosTextLabel, withOffset: offsets?.bottom ?? 0)
+          tvosBadge.pinToTop(ofView: tvosTextLabel, withOffset: offsets?.bottom ?? 0)
         }
         tvosTextLabel.fillHorizontal(toView: tvosButton)
         tvosTextLabel.pinBottom(toView: tvosButton)
@@ -289,10 +289,10 @@ public extension TVOSButton {
         case (.Some(let s), .None):
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
-          tvosBadge.pinTop(inView: nil, toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.pinLeft(inView: nil, toView: tvosButton, withInset: offsets?.left ?? 0)
-          tvosBadge.pinBottom(inView: nil, toView: tvosButton, withInset: offsets?.bottom ?? 0)
-          tvosBadge.pinToLeft(inView: tvosButton, toView: tvosTextLabel, withOffset: offsets?.right ?? 0)
+          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
+          tvosBadge.pinLeft(toView: tvosButton, withInset: offsets?.left ?? 0)
+          tvosBadge.pinBottom(toView: tvosButton, withInset: offsets?.bottom ?? 0)
+          tvosBadge.pinToLeft(ofView: tvosTextLabel, withOffset: offsets?.right ?? 0)
         }
         tvosTextLabel.pinTop(toView: tvosButton)
         tvosTextLabel.pinRight(toView: tvosButton)
@@ -306,10 +306,10 @@ public extension TVOSButton {
         case (.Some(let s), .None):
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
-          tvosBadge.pinTop(inView: nil, toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.pinRight(inView: nil, toView: tvosButton, withInset: offsets?.right ?? 0)
-          tvosBadge.pinBottom(inView: nil, toView: tvosButton, withInset: offsets?.bottom ?? 0)
-          tvosBadge.pinToRight(inView: tvosButton, toView: tvosButton, withOffset: offsets?.right ?? 0)
+          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
+          tvosBadge.pinRight(toView: tvosButton, withInset: offsets?.right ?? 0)
+          tvosBadge.pinBottom(toView: tvosButton, withInset: offsets?.bottom ?? 0)
+          tvosBadge.pinToRight(ofView: tvosButton, withOffset: offsets?.right ?? 0)
         }
         tvosTextLabel.pinTop(toView: tvosButton)
         tvosTextLabel.pinLeft(toView: tvosButton)
@@ -325,7 +325,7 @@ public extension TVOSButton {
         default:
           tvosBadge.fillHorizontal(toView: tvosButton, withInset: offsets?.left ?? 0)
           tvosBadge.pinBottom(toView: tvosButton)
-          tvosBadge.pinToTop(inView: tvosButton, toView: tvosTextLabel, withOffset: offsets?.top ?? 0)
+          tvosBadge.pinToTop(ofView: tvosTextLabel, withOffset: offsets?.top ?? 0)
         }
         tvosTextLabel.pinTop(toView: tvosButton)
         tvosTextLabel.fillHorizontal(toView: tvosButton)
@@ -343,7 +343,7 @@ public extension TVOSButton {
     tvosButton.fill(toView: self)
     tvosButtonBackgroundImageView.fill(toView: tvosButton)
     // setup title constraints label
-    tvosTitleLabel.pinToBottom(toView: self)
+    tvosTitleLabel.pinToBottom(ofView: self)
     tvosTitleLabel.fillHorizontal(toView: self)
     tvosTitleLabel.pinHeight(50)
     // setup content constraints

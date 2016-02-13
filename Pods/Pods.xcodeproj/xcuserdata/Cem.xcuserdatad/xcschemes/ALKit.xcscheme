@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5792EAEF1CE541E7ADC2D7EF'
+               BlueprintIdentifier = '3FD28F05899EE5B05DC34383'
                BlueprintName = 'ALKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ALKit.framework'>

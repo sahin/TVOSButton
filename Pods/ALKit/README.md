@@ -17,7 +17,7 @@ pod 'ALKit'
 
 Copy the `ALKit` folder into your project
 
-Documentation
+Usage
 ----
 
 ### Init
@@ -64,90 +64,44 @@ Wraps `addConstraint:` method of autolayout.
     }
 ```
 
-### Pin
-
-Pins the same edges.
+#### Example
 
 ``` swift
-func pinRight(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)
-```
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-``` swift
-func pinLeft(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)
-```
+    // setup views
 
-``` swift
-func pinTop(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)
-```
+    let box = UIView.AutoLayout()
+    box.backgroundColor = UIColor.greenColor()
+    view.addSubview(box)
 
-``` swift
-func pinBottom(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)
-```
+    let blue = UIView.AutoLayout()
+    blue.backgroundColor = UIColor.blueColor()
+    box.addSubview(blue)
 
-### Pin To
+    let red = UIView.AutoLayout()
+    red.backgroundColor = UIColor.redColor()
+    box.addSubview(red)
 
-Pins the opposite edeges.
+    let yellow = UIView.AutoLayout()
+    yellow.backgroundColor = UIColor.yellowColor()
+    box.addSubview(yellow)
 
-``` swift
-func pinToRight(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)
-```
+    // setup constraints
 
-``` swift
-func pinToLeft(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)
-```
+    box.fill(toView: view)
 
-``` swift
-func pinToTop(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)
-```
+    blue.pinTop(toView: box, withInset: 10)
+    blue.fillHorizontal(toView: box, withInset: 10)
+    blue.pinHeight(90)
 
-``` swift
-func pinToBottom(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)
-```
+    red.pinBottom(toView: box, withInset: 10)
+    red.fillHorizontal(toView: box, withInset: 10)
+    red.pinHeight(90)
 
-### Fill
-
-Fills in view horizontally, vertically or both.
-
-``` swift
-func fill(toView view: UIView, withInset: UIEdgeInsets = UIEdgeInsetsZero)
-```
-
-``` swift
-func fillHorizontal(toView view: UIView, withInset: CGFloat = 0)
-```
-
-``` swift
-func fillVertical(toView view: UIView, withInset: CGFloat = 0)
-```
-
-### Size
-
-Sets the size by width, height or both.
-
-``` swift
-func pinSize(width width: CGFloat, height: CGFloat) 
-```
-
-``` swift
-func pinWidht(width: CGFloat)
-```
-
-``` swift
-func pinHeight(height: CGFloat)
-```
-
-### Center
-
-Centers horizontally, vertically or both.
-
-``` swift
-func pinCenter(toView view: UIView)
-```
-
-``` swift
-func pinCenterX(toView view: UIView)
-```
-
-``` swift
-func pinCenterY(toView view: UIView)
+    yellow.pinToTop(ofView: red, withOffset: 10)
+    yellow.pinCenterX(toView: red)
+    yellow.pinSize(width: 50, height: 50)
+  }
 ```

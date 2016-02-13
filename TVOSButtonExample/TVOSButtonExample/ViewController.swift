@@ -44,11 +44,10 @@ class ViewController: UIViewController {
           cornerRadius: 10,
           scale: nil,
           shadow: nil,
-          badge: TVOSButtonImage.Top(image: UIImage(named: "share")!),
+          badge: TVOSButtonImage.Left(image: UIImage(named: "share")!),
           text: TVOSButtonLabel.DefaultText(text: "Button", color: nil),
           title: TVOSButtonLabel.DefaultTitle(title: "Title", color: nil))
       }
     }
   }
 }
-
