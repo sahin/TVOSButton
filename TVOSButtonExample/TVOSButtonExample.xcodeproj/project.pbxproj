@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B24AE6BA1C6D53F70099207D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AE6B91C6D53F70099207D /* AppDelegate.swift */; };
+		B24AE6BC1C6D53F70099207D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AE6BB1C6D53F70099207D /* ViewController.swift */; };
+		B24AE6BF1C6D53F70099207D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24AE6BD1C6D53F70099207D /* Main.storyboard */; };
+		B24AE6C11C6D53F70099207D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24AE6C01C6D53F70099207D /* Assets.xcassets */; };
+		B24AE6CC1C6D53F70099207D /* TVOSButtonExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AE6CB1C6D53F70099207D /* TVOSButtonExampleTests.swift */; };
+		B24AE6D71C6D53F70099207D /* TVOSButtonExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AE6D61C6D53F70099207D /* TVOSButtonExampleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B24AE6C81C6D53F70099207D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B24AE6AE1C6D53F70099207D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B24AE6B51C6D53F70099207D;
+			remoteInfo = TVOSButtonExample;
+		};
+		B24AE6D31C6D53F70099207D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B24AE6AE1C6D53F70099207D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B24AE6B51C6D53F70099207D;
+			remoteInfo = TVOSButtonExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B24AE6B61C6D53F70099207D /* TVOSButtonExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVOSButtonExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24AE6B91C6D53F70099207D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B24AE6BB1C6D53F70099207D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B24AE6BE1C6D53F70099207D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B24AE6C01C6D53F70099207D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B24AE6C21C6D53F70099207D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B24AE6C71C6D53F70099207D /* TVOSButtonExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVOSButtonExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24AE6CB1C6D53F70099207D /* TVOSButtonExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOSButtonExampleTests.swift; sourceTree = "<group>"; };
+		B24AE6CD1C6D53F70099207D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B24AE6D21C6D53F70099207D /* TVOSButtonExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVOSButtonExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24AE6D61C6D53F70099207D /* TVOSButtonExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOSButtonExampleUITests.swift; sourceTree = "<group>"; };
+		B24AE6D81C6D53F70099207D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B24AE6B31C6D53F70099207D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6C41C6D53F70099207D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6CF1C6D53F70099207D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B24AE6AD1C6D53F70099207D = {
+			isa = PBXGroup;
+			children = (
+				B24AE6B81C6D53F70099207D /* TVOSButtonExample */,
+				B24AE6CA1C6D53F70099207D /* TVOSButtonExampleTests */,
+				B24AE6D51C6D53F70099207D /* TVOSButtonExampleUITests */,
+				B24AE6B71C6D53F70099207D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B24AE6B71C6D53F70099207D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B24AE6B61C6D53F70099207D /* TVOSButtonExample.app */,
+				B24AE6C71C6D53F70099207D /* TVOSButtonExampleTests.xctest */,
+				B24AE6D21C6D53F70099207D /* TVOSButtonExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B24AE6B81C6D53F70099207D /* TVOSButtonExample */ = {
+			isa = PBXGroup;
+			children = (
+				B24AE6B91C6D53F70099207D /* AppDelegate.swift */,
+				B24AE6BB1C6D53F70099207D /* ViewController.swift */,
+				B24AE6BD1C6D53F70099207D /* Main.storyboard */,
+				B24AE6C01C6D53F70099207D /* Assets.xcassets */,
+				B24AE6C21C6D53F70099207D /* Info.plist */,
+			);
+			path = TVOSButtonExample;
+			sourceTree = "<group>";
+		};
+		B24AE6CA1C6D53F70099207D /* TVOSButtonExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				B24AE6CB1C6D53F70099207D /* TVOSButtonExampleTests.swift */,
+				B24AE6CD1C6D53F70099207D /* Info.plist */,
+			);
+			path = TVOSButtonExampleTests;
+			sourceTree = "<group>";
+		};
+		B24AE6D51C6D53F70099207D /* TVOSButtonExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B24AE6D61C6D53F70099207D /* TVOSButtonExampleUITests.swift */,
+				B24AE6D81C6D53F70099207D /* Info.plist */,
+			);
+			path = TVOSButtonExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B24AE6B51C6D53F70099207D /* TVOSButtonExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B24AE6DB1C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExample" */;
+			buildPhases = (
+				B24AE6B21C6D53F70099207D /* Sources */,
+				B24AE6B31C6D53F70099207D /* Frameworks */,
+				B24AE6B41C6D53F70099207D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TVOSButtonExample;
+			productName = TVOSButtonExample;
+			productReference = B24AE6B61C6D53F70099207D /* TVOSButtonExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B24AE6C61C6D53F70099207D /* TVOSButtonExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B24AE6DE1C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExampleTests" */;
+			buildPhases = (
+				B24AE6C31C6D53F70099207D /* Sources */,
+				B24AE6C41C6D53F70099207D /* Frameworks */,
+				B24AE6C51C6D53F70099207D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B24AE6C91C6D53F70099207D /* PBXTargetDependency */,
+			);
+			name = TVOSButtonExampleTests;
+			productName = TVOSButtonExampleTests;
+			productReference = B24AE6C71C6D53F70099207D /* TVOSButtonExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B24AE6D11C6D53F70099207D /* TVOSButtonExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B24AE6E11C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExampleUITests" */;
+			buildPhases = (
+				B24AE6CE1C6D53F70099207D /* Sources */,
+				B24AE6CF1C6D53F70099207D /* Frameworks */,
+				B24AE6D01C6D53F70099207D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B24AE6D41C6D53F70099207D /* PBXTargetDependency */,
+			);
+			name = TVOSButtonExampleUITests;
+			productName = TVOSButtonExampleUITests;
+			productReference = B24AE6D21C6D53F70099207D /* TVOSButtonExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B24AE6AE1C6D53F70099207D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = MovieLaLa;
+				TargetAttributes = {
+					B24AE6B51C6D53F70099207D = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					B24AE6C61C6D53F70099207D = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B24AE6B51C6D53F70099207D;
+					};
+					B24AE6D11C6D53F70099207D = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = B24AE6B51C6D53F70099207D;
+					};
+				};
+			};
+			buildConfigurationList = B24AE6B11C6D53F70099207D /* Build configuration list for PBXProject "TVOSButtonExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B24AE6AD1C6D53F70099207D;
+			productRefGroup = B24AE6B71C6D53F70099207D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B24AE6B51C6D53F70099207D /* TVOSButtonExample */,
+				B24AE6C61C6D53F70099207D /* TVOSButtonExampleTests */,
+				B24AE6D11C6D53F70099207D /* TVOSButtonExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B24AE6B41C6D53F70099207D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24AE6C11C6D53F70099207D /* Assets.xcassets in Resources */,
+				B24AE6BF1C6D53F70099207D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6C51C6D53F70099207D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6D01C6D53F70099207D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B24AE6B21C6D53F70099207D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24AE6BC1C6D53F70099207D /* ViewController.swift in Sources */,
+				B24AE6BA1C6D53F70099207D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6C31C6D53F70099207D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24AE6CC1C6D53F70099207D /* TVOSButtonExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24AE6CE1C6D53F70099207D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24AE6D71C6D53F70099207D /* TVOSButtonExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B24AE6C91C6D53F70099207D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B24AE6B51C6D53F70099207D /* TVOSButtonExample */;
+			targetProxy = B24AE6C81C6D53F70099207D /* PBXContainerItemProxy */;
+		};
+		B24AE6D41C6D53F70099207D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B24AE6B51C6D53F70099207D /* TVOSButtonExample */;
+			targetProxy = B24AE6D31C6D53F70099207D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B24AE6BD1C6D53F70099207D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B24AE6BE1C6D53F70099207D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B24AE6D91C6D53F70099207D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		B24AE6DA1C6D53F70099207D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B24AE6DC1C6D53F70099207D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVOSButtonExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B24AE6DD1C6D53F70099207D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVOSButtonExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B24AE6DF1C6D53F70099207D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TVOSButtonExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVOSButtonExample.app/TVOSButtonExample";
+			};
+			name = Debug;
+		};
+		B24AE6E01C6D53F70099207D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TVOSButtonExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVOSButtonExample.app/TVOSButtonExample";
+			};
+			name = Release;
+		};
+		B24AE6E21C6D53F70099207D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TVOSButtonExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TVOSButtonExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B24AE6E31C6D53F70099207D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TVOSButtonExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.movielala.TVOSButtonExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TVOSButtonExample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B24AE6B11C6D53F70099207D /* Build configuration list for PBXProject "TVOSButtonExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24AE6D91C6D53F70099207D /* Debug */,
+				B24AE6DA1C6D53F70099207D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B24AE6DB1C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24AE6DC1C6D53F70099207D /* Debug */,
+				B24AE6DD1C6D53F70099207D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B24AE6DE1C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24AE6DF1C6D53F70099207D /* Debug */,
+				B24AE6E01C6D53F70099207D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B24AE6E11C6D53F70099207D /* Build configuration list for PBXNativeTarget "TVOSButtonExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24AE6E21C6D53F70099207D /* Debug */,
+				B24AE6E31C6D53F70099207D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B24AE6AE1C6D53F70099207D /* Project object */;
+}

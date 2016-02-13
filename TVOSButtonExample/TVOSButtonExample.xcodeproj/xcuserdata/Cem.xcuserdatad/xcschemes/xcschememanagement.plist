@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>TVOSButtonExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B24AE6B51C6D53F70099207D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B24AE6C61C6D53F70099207D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B24AE6D11C6D53F70099207D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
