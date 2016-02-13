@@ -16,15 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="ZoT-7t-Y3S">
-                                <rect key="frame" x="614" y="169" width="803" height="594"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-ym-lIB" userLabel="TVOSButton" customClass="TVOSButton" customModule="TVOSButton">
-                                <rect key="frame" x="354" y="330" width="588" height="253"/>
+                                <rect key="frame" x="346" y="306" width="596" height="277"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-sj-cCJ">
-                                <rect key="frame" x="978" y="497" width="195" height="86"/>
+                                <rect key="frame" x="1108" y="497" width="195" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -40,7 +37,4 @@
             <point key="canvasLocation" x="566" y="537"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="images" width="251" height="201"/>
-    </resources>
 </document>

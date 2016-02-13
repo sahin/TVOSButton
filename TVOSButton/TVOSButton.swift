@@ -123,6 +123,8 @@ public class TVOSButton: UIButton {
   private var tvosTextLabel: UILabel!
   private var tvosTitleLabel: UILabel!
 
+  private var tvosTitleLabelTopConstraint: NSLayoutConstraint!
+
   private(set) var tvosButtonState: TVOSButtonState = .Normal {
     didSet {
       tvosButtonStateDidChange()
@@ -202,6 +204,14 @@ public class TVOSButton: UIButton {
     tvosTitleLabel = UILabel()
     tvosTitleLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(tvosTitleLabel)
+    // add button constraints
+    tvosButton.fill(toView: self)
+    tvosButtonBackgroundImageView.fill(toView: tvosButton)
+    // add title constraints
+    tvosTitleLabel.fillHorizontal(toView: self)
+    tvosTitleLabel.pinHeight(50)
+    tvosTitleLabelTopConstraint = NSLayoutConstraint(item: tvosTitleLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
+    addConstraint(tvosTitleLabelTopConstraint)
     // finalize
     layer.masksToBounds = false
     tvosButtonStateDidChange()
@@ -212,14 +222,16 @@ public class TVOSButton: UIButton {
   private func tvosButtonStateDidChange() {
     tvosButtonStateDidChangeAction?(tvosButtonState: tvosButtonState)
     if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
+      layoutIfNeeded()
       UIView.animateWithDuration(0.3,
         delay: 0,
         usingSpringWithDamping: 1,
         initialSpringVelocity: 0,
         options: UIViewAnimationOptions.AllowAnimatedContent,
         animations: {
+          self.tvosTitleLabelTopConstraint.constant = self.tvosButtonState == .Focused ? 20 : 0
           style.applyStyle(onButton: self)
-          self.setNeedsLayout()
+          self.layoutIfNeeded()
         },
         completion: nil)
     }
@@ -338,29 +350,13 @@ public extension TVOSButton {
     }
   }
 
-  private func setupConstraintsForStyle(style: TVOSButtonStyle) {
-    // setup button constraints
-    tvosButton.fill(toView: self)
-    tvosButtonBackgroundImageView.fill(toView: tvosButton)
-    // setup title constraints label
-    tvosTitleLabel.pinToBottom(ofView: self)
-    tvosTitleLabel.fillHorizontal(toView: self)
-    tvosTitleLabel.pinHeight(50)
-    // setup content constraints
-    setupButtonContentConstraintsForImage(style.badge)
-  }
-
   private func setupConstraints() {
     // Remove constraints
     tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
     tvosBadge.removeConstraints(tvosBadge.constraints)
-    tvosButtonBackgroundImageView.removeConstraints(tvosButtonBackgroundImageView.constraints)
-    tvosButton.removeConstraints(tvosButton.constraints)
-    tvosTitleLabel.removeConstraints(tvosTitleLabel.constraints)
-    removeConstraints(constraints)
     // Add constraints for style
     if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
-      setupConstraintsForStyle(style)
+      setupButtonContentConstraintsForImage(style.badge)
     }
   }
 
