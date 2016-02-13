@@ -281,13 +281,15 @@ public extension TVOSButton {
       case .Top:
         tvosBadge.contentMode = .ScaleAspectFit
         switch (size, offsets) {
-        case (.Some(let s), .Some(_)):
+        case (.Some(let s), .Some(let o)):
+          tvosBadge.pinTop(toView: tvosButton, withInset: o.top)
           tvosBadge.pinSize(width: s.width, height: s.height)
         case (.Some(let s), .None):
+          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
           tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.fillHorizontal(toView: tvosButton, withInset: offsets?.left ?? 0)
+          tvosBadge.fillHorizontal(toView: tvosButton)
           tvosBadge.pinToTop(ofView: tvosTextLabel, withOffset: offsets?.bottom ?? 0)
         }
         tvosTextLabel.fillHorizontal(toView: tvosButton)
@@ -296,9 +298,11 @@ public extension TVOSButton {
       case .Left:
         tvosBadge.contentMode = .ScaleAspectFit
         switch (size, offsets) {
-        case (.Some(let s), .Some(_)):
+        case (.Some(let s), .Some(let o)):
+          tvosBadge.pinLeft(toView: tvosButton, withInset: o.left)
           tvosBadge.pinSize(width: s.width, height: s.height)
         case (.Some(let s), .None):
+          tvosBadge.pinLeft(toView: tvosButton)
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
           tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
@@ -313,9 +317,11 @@ public extension TVOSButton {
       case .Right:
         tvosBadge.contentMode = .ScaleAspectFit
         switch (size, offsets) {
-        case (.Some(let s), .Some(_)):
+        case (.Some(let s), .Some(let o)):
+          tvosBadge.pinRight(toView: tvosButton, withInset: o.right)
           tvosBadge.pinSize(width: s.width, height: s.height)
         case (.Some(let s), .None):
+          tvosBadge.pinRight(toView: tvosButton)
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
           tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
@@ -330,9 +336,11 @@ public extension TVOSButton {
       case .Bottom:
         tvosBadge.contentMode = .ScaleAspectFit
         switch (size, offsets) {
-        case (.Some(let s), .Some(_)):
+        case (.Some(let s), .Some(let o)):
+          tvosBadge.pinBottom(toView: tvosButton, withInset: o.bottom)
           tvosBadge.pinSize(width: s.width, height: s.height)
         case (.Some(let s), .None):
+          tvosBadge.pinBottom(toView: tvosButton)
           tvosBadge.pinSize(width: s.width, height: s.height)
         default:
           tvosBadge.fillHorizontal(toView: tvosButton, withInset: offsets?.left ?? 0)
