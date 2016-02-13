@@ -7,13 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B238BC0B1C6E63CB003160F5 /* TVOSButtonShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238BC0A1C6E63CA003160F5 /* TVOSButtonShadow.swift */; };
+		B238BC101C6E63E1003160F5 /* TVOSButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238BC0F1C6E63E1003160F5 /* TVOSButtonImage.swift */; };
+		B238BC121C6E640D003160F5 /* TVOSButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238BC111C6E640D003160F5 /* TVOSButtonLabel.swift */; };
 		B25D2F691C6C54E800C3DAE4 /* TVOSButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B25D2F681C6C54E800C3DAE4 /* TVOSButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B25D2F701C6C54E900C3DAE4 /* TVOSButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D2F651C6C54E800C3DAE4 /* TVOSButton.framework */; };
 		B25D2F751C6C54E900C3DAE4 /* TVOSButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D2F741C6C54E900C3DAE4 /* TVOSButtonTests.swift */; };
 		B25D2F801C6C551100C3DAE4 /* TVOSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */; };
+		B732DEB8548D80AAE00C24A4 /* Pods_TVOSButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADB57450165E7AA32C1FEB1 /* Pods_TVOSButton.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B24AE6EA1C6D53F80099207D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B24AE6B61C6D53F70099207D;
+			remoteInfo = TVOSButtonExample;
+		};
+		B24AE6EC1C6D53F80099207D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B24AE6C71C6D53F70099207D;
+			remoteInfo = TVOSButtonExampleTests;
+		};
+		B24AE6EE1C6D53F80099207D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B24AE6D21C6D53F70099207D;
+			remoteInfo = TVOSButtonExampleUITests;
+		};
 		B25D2F711C6C54E900C3DAE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B25D2F5C1C6C54E800C3DAE4 /* Project object */;
@@ -24,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6ADB57450165E7AA32C1FEB1 /* Pods_TVOSButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOSButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B238BC0A1C6E63CA003160F5 /* TVOSButtonShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVOSButtonShadow.swift; sourceTree = "<group>"; };
+		B238BC0F1C6E63E1003160F5 /* TVOSButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVOSButtonImage.swift; sourceTree = "<group>"; };
+		B238BC111C6E640D003160F5 /* TVOSButtonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVOSButtonLabel.swift; sourceTree = "<group>"; };
+		B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TVOSButtonExample.xcodeproj; path = TVOSButtonExample/TVOSButtonExample.xcodeproj; sourceTree = "<group>"; };
 		B25D2F651C6C54E800C3DAE4 /* TVOSButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TVOSButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25D2F681C6C54E800C3DAE4 /* TVOSButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVOSButton.h; sourceTree = "<group>"; };
 		B25D2F6A1C6C54E800C3DAE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +61,8 @@
 		B25D2F741C6C54E900C3DAE4 /* TVOSButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOSButtonTests.swift; sourceTree = "<group>"; };
 		B25D2F761C6C54E900C3DAE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVOSButton.swift; sourceTree = "<group>"; };
+		B55371F30F3E28C0B3CE9B8C /* Pods-TVOSButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOSButton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TVOSButton/Pods-TVOSButton.debug.xcconfig"; sourceTree = "<group>"; };
+		C33D4762B34F3D2649C01DC7 /* Pods-TVOSButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVOSButton.release.xcconfig"; path = "Pods/Target Support Files/Pods-TVOSButton/Pods-TVOSButton.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B732DEB8548D80AAE00C24A4 /* Pods_TVOSButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,12 +85,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454E178A0A162B14A8A832F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ADB57450165E7AA32C1FEB1 /* Pods_TVOSButton.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94751A2FFB7000EC347FFB8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B55371F30F3E28C0B3CE9B8C /* Pods-TVOSButton.debug.xcconfig */,
+				C33D4762B34F3D2649C01DC7 /* Pods-TVOSButton.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B24AE6E51C6D53F70099207D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B24AE6EB1C6D53F80099207D /* TVOSButtonExample.app */,
+				B24AE6ED1C6D53F80099207D /* TVOSButtonExampleTests.xctest */,
+				B24AE6EF1C6D53F80099207D /* TVOSButtonExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B25D2F5B1C6C54E800C3DAE4 = {
 			isa = PBXGroup;
 			children = (
+				B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */,
 				B25D2F671C6C54E800C3DAE4 /* TVOSButton */,
 				B25D2F731C6C54E900C3DAE4 /* TVOSButtonTests */,
 				B25D2F661C6C54E800C3DAE4 /* Products */,
+				94751A2FFB7000EC347FFB8D /* Pods */,
+				454E178A0A162B14A8A832F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +139,9 @@
 				B25D2F681C6C54E800C3DAE4 /* TVOSButton.h */,
 				B25D2F6A1C6C54E800C3DAE4 /* Info.plist */,
 				B25D2F7F1C6C551100C3DAE4 /* TVOSButton.swift */,
+				B238BC0A1C6E63CA003160F5 /* TVOSButtonShadow.swift */,
+				B238BC111C6E640D003160F5 /* TVOSButtonLabel.swift */,
+				B238BC0F1C6E63E1003160F5 /* TVOSButtonImage.swift */,
 			);
 			path = TVOSButton;
 			sourceTree = "<group>";
@@ -107,10 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B25D2F791C6C54E900C3DAE4 /* Build configuration list for PBXNativeTarget "TVOSButton" */;
 			buildPhases = (
+				C41155D7D6E9546CCF5C37BE /* Check Pods Manifest.lock */,
 				B25D2F601C6C54E800C3DAE4 /* Sources */,
 				B25D2F611C6C54E800C3DAE4 /* Frameworks */,
 				B25D2F621C6C54E800C3DAE4 /* Headers */,
 				B25D2F631C6C54E800C3DAE4 /* Resources */,
+				0AF7B942E4A0255ED6E3596B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +235,12 @@
 			mainGroup = B25D2F5B1C6C54E800C3DAE4;
 			productRefGroup = B25D2F661C6C54E800C3DAE4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B24AE6E51C6D53F70099207D /* Products */;
+					ProjectRef = B24AE6E41C6D53F70099207D /* TVOSButtonExample.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B25D2F641C6C54E800C3DAE4 /* TVOSButton */,
@@ -174,6 +248,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B24AE6EB1C6D53F80099207D /* TVOSButtonExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TVOSButtonExample.app;
+			remoteRef = B24AE6EA1C6D53F80099207D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B24AE6ED1C6D53F80099207D /* TVOSButtonExampleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TVOSButtonExampleTests.xctest;
+			remoteRef = B24AE6EC1C6D53F80099207D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B24AE6EF1C6D53F80099207D /* TVOSButtonExampleUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TVOSButtonExampleUITests.xctest;
+			remoteRef = B24AE6EE1C6D53F80099207D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B25D2F631C6C54E800C3DAE4 /* Resources */ = {
@@ -192,12 +290,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AF7B942E4A0255ED6E3596B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TVOSButton/Pods-TVOSButton-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C41155D7D6E9546CCF5C37BE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B25D2F601C6C54E800C3DAE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B238BC121C6E640D003160F5 /* TVOSButtonLabel.swift in Sources */,
 				B25D2F801C6C551100C3DAE4 /* TVOSButton.swift in Sources */,
+				B238BC101C6E63E1003160F5 /* TVOSButtonImage.swift in Sources */,
+				B238BC0B1C6E63CB003160F5 /* TVOSButtonShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +443,7 @@
 		};
 		B25D2F7A1C6C54E900C3DAE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B55371F30F3E28C0B3CE9B8C /* Pods-TVOSButton.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -327,6 +462,7 @@
 		};
 		B25D2F7B1C6C54E900C3DAE4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33D4762B34F3D2649C01DC7 /* Pods-TVOSButton.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -381,6 +517,7 @@
 				B25D2F7B1C6C54E900C3DAE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B25D2F7C1C6C54E900C3DAE4 /* Build configuration list for PBXNativeTarget "TVOSButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -389,6 +526,7 @@
 				B25D2F7E1C6C54E900C3DAE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

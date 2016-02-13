@@ -1,0 +1,6 @@
+framework module ALKit {
+  umbrella header "ALKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

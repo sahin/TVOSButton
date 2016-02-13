@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30CE02E27C39F644961035CB3A7464B3 /* ALKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5E62B8FE9803724AF83109EC84DC57 /* ALKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D6B256CA8FF7812A7DAF943F4B658F8 /* ALKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC30EADD3A78CA15EA700F8EC1F0939 /* ALKit-dummy.m */; };
+		6148FAFAB9874B120AFB54A3FC699946 /* Pods-TVOSButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EF763664673DA8AEC81FD5FCBE7A93 /* Pods-TVOSButton-dummy.m */; };
+		7B946DDA01EBB46F96FAEFB54E4E3B84 /* Pods-TVOSButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B77768C5F35A442E27C7892665FE29E7 /* Pods-TVOSButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CAA1BB400C004C8E9FA623F92289622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A2BF98B0ED3D2628D889BC2E4015F2 /* Foundation.framework */; };
+		B30BD1B41A2EFFCCD66BCCADAAD20803 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A2BF98B0ED3D2628D889BC2E4015F2 /* Foundation.framework */; };
+		FE4804691C452E1D229B0EBE1FD7DB81 /* ALKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7E8B5FD8C21C81E54E997ECD2FF59 /* ALKit.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46E540F7B80BC502B331BF7729F871C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9E6D5C04D74F1040CE54AE8BE4A7DC7;
+			remoteInfo = ALKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1FF4E9AE0054AB1CE3E92F23545E9C29 /* Pods-TVOSButton-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TVOSButton-acknowledgements.plist"; sourceTree = "<group>"; };
+		33A2BF98B0ED3D2628D889BC2E4015F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		385CD5F27F6E4C45446192A3D934AB85 /* Pods-TVOSButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TVOSButton.debug.xcconfig"; sourceTree = "<group>"; };
+		47EF763664673DA8AEC81FD5FCBE7A93 /* Pods-TVOSButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TVOSButton-dummy.m"; sourceTree = "<group>"; };
+		5554DB2E18D333987C870699753C3859 /* Pods-TVOSButton-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TVOSButton-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5FA82EED6AD4372CD2A574D635991414 /* Pods-TVOSButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TVOSButton.modulemap"; sourceTree = "<group>"; };
+		7F42C0D11E4DA69D7E6FD412E7691E33 /* ALKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALKit-prefix.pch"; sourceTree = "<group>"; };
+		8179CB7CFA222A89E937BACFD3EC1298 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93555A831296BFB1E2041B4E8C3A8BB3 /* Pods_TVOSButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVOSButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC30EADD3A78CA15EA700F8EC1F0939 /* ALKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALKit-dummy.m"; sourceTree = "<group>"; };
+		B64E3AE9FAE8654B792065CE2B4175B5 /* ALKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ALKit.modulemap; sourceTree = "<group>"; };
+		B77768C5F35A442E27C7892665FE29E7 /* Pods-TVOSButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TVOSButton-umbrella.h"; sourceTree = "<group>"; };
+		B8CE0C7039C109EFED6A724BA37697D8 /* Pods-TVOSButton-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TVOSButton-frameworks.sh"; sourceTree = "<group>"; };
+		BA5E62B8FE9803724AF83109EC84DC57 /* ALKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALKit-umbrella.h"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BC0DC1969FF957233E3008974C2D2B9B /* ALKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALKit.xcconfig; sourceTree = "<group>"; };
+		BDFE4743A0C8708557C9952C48C525F2 /* Pods-TVOSButton-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TVOSButton-resources.sh"; sourceTree = "<group>"; };
+		C8FA404A1C3D84314A0563226FCCDD0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC02A6F96592640C04093AFB142E689D /* ALKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF7E8B5FD8C21C81E54E997ECD2FF59 /* ALKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ALKit.swift; path = ALKit/ALKit/ALKit.swift; sourceTree = "<group>"; };
+		FCF5E58E29AB53FEBBB6B760A4E8EEE7 /* Pods-TVOSButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TVOSButton.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B17AFFAAA8067F690BE770161441A421 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B30BD1B41A2EFFCCD66BCCADAAD20803 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F502509B0071EEF152C61A1D8D26F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CAA1BB400C004C8E9FA623F92289622 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05C648E334E7959B491F8CA307A551A7 /* Pods-TVOSButton */ = {
+			isa = PBXGroup;
+			children = (
+				8179CB7CFA222A89E937BACFD3EC1298 /* Info.plist */,
+				5FA82EED6AD4372CD2A574D635991414 /* Pods-TVOSButton.modulemap */,
+				5554DB2E18D333987C870699753C3859 /* Pods-TVOSButton-acknowledgements.markdown */,
+				1FF4E9AE0054AB1CE3E92F23545E9C29 /* Pods-TVOSButton-acknowledgements.plist */,
+				47EF763664673DA8AEC81FD5FCBE7A93 /* Pods-TVOSButton-dummy.m */,
+				B8CE0C7039C109EFED6A724BA37697D8 /* Pods-TVOSButton-frameworks.sh */,
+				BDFE4743A0C8708557C9952C48C525F2 /* Pods-TVOSButton-resources.sh */,
+				B77768C5F35A442E27C7892665FE29E7 /* Pods-TVOSButton-umbrella.h */,
+				385CD5F27F6E4C45446192A3D934AB85 /* Pods-TVOSButton.debug.xcconfig */,
+				FCF5E58E29AB53FEBBB6B760A4E8EEE7 /* Pods-TVOSButton.release.xcconfig */,
+			);
+			name = "Pods-TVOSButton";
+			path = "Target Support Files/Pods-TVOSButton";
+			sourceTree = "<group>";
+		};
+		1A81001DF8E1EF085872D5C18F8FBC92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42ECF730284B7726AE1200090CB93E03 /* ALKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1E2AD54D01E83051EB6E56F62B77D084 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC02A6F96592640C04093AFB142E689D /* ALKit.framework */,
+				93555A831296BFB1E2041B4E8C3A8BB3 /* Pods_TVOSButton.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E31FE0DE26B94C9B31FCB3CF74719E3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B64E3AE9FAE8654B792065CE2B4175B5 /* ALKit.modulemap */,
+				BC0DC1969FF957233E3008974C2D2B9B /* ALKit.xcconfig */,
+				AFC30EADD3A78CA15EA700F8EC1F0939 /* ALKit-dummy.m */,
+				7F42C0D11E4DA69D7E6FD412E7691E33 /* ALKit-prefix.pch */,
+				BA5E62B8FE9803724AF83109EC84DC57 /* ALKit-umbrella.h */,
+				C8FA404A1C3D84314A0563226FCCDD0E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ALKit";
+			sourceTree = "<group>";
+		};
+		42ECF730284B7726AE1200090CB93E03 /* ALKit */ = {
+			isa = PBXGroup;
+			children = (
+				FBF7E8B5FD8C21C81E54E997ECD2FF59 /* ALKit.swift */,
+				1E31FE0DE26B94C9B31FCB3CF74719E3 /* Support Files */,
+			);
+			path = ALKit;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BB99B8D4C7329D10E7E4451B0A72C15A /* Frameworks */,
+				1A81001DF8E1EF085872D5C18F8FBC92 /* Pods */,
+				1E2AD54D01E83051EB6E56F62B77D084 /* Products */,
+				7DC2AA84A72268FA27BEBE5190E3E279 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7DC2AA84A72268FA27BEBE5190E3E279 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				05C648E334E7959B491F8CA307A551A7 /* Pods-TVOSButton */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BB99B8D4C7329D10E7E4451B0A72C15A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FED99894716A2FB2E381E1188C25DC66 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FED99894716A2FB2E381E1188C25DC66 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				33A2BF98B0ED3D2628D889BC2E4015F2 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		098109F0AFDC04D975C4B688289FA830 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B946DDA01EBB46F96FAEFB54E4E3B84 /* Pods-TVOSButton-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA6A359203C9220CC8E852BD1540755C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30CE02E27C39F644961035CB3A7464B3 /* ALKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		64E508EC08E0EAF999C7DED94585CA5E /* Pods-TVOSButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FECCD839CA706246062C2EB633AE463 /* Build configuration list for PBXNativeTarget "Pods-TVOSButton" */;
+			buildPhases = (
+				D6CC45C3933E8AF3FC90DD42BFAA0544 /* Sources */,
+				B17AFFAAA8067F690BE770161441A421 /* Frameworks */,
+				098109F0AFDC04D975C4B688289FA830 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE6BB091C7E0681A344F68161E9EE246 /* PBXTargetDependency */,
+			);
+			name = "Pods-TVOSButton";
+			productName = "Pods-TVOSButton";
+			productReference = 93555A831296BFB1E2041B4E8C3A8BB3 /* Pods_TVOSButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F9E6D5C04D74F1040CE54AE8BE4A7DC7 /* ALKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD2F68BE9476CEE25BFA2C8DB6E7B8A4 /* Build configuration list for PBXNativeTarget "ALKit" */;
+			buildPhases = (
+				55CD0F75B85DFF37A8599E09A2D142B7 /* Sources */,
+				D3F502509B0071EEF152C61A1D8D26F1 /* Frameworks */,
+				AA6A359203C9220CC8E852BD1540755C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALKit;
+			productName = ALKit;
+			productReference = DC02A6F96592640C04093AFB142E689D /* ALKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 1E2AD54D01E83051EB6E56F62B77D084 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9E6D5C04D74F1040CE54AE8BE4A7DC7 /* ALKit */,
+				64E508EC08E0EAF999C7DED94585CA5E /* Pods-TVOSButton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55CD0F75B85DFF37A8599E09A2D142B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D6B256CA8FF7812A7DAF943F4B658F8 /* ALKit-dummy.m in Sources */,
+				FE4804691C452E1D229B0EBE1FD7DB81 /* ALKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6CC45C3933E8AF3FC90DD42BFAA0544 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6148FAFAB9874B120AFB54A3FC699946 /* Pods-TVOSButton-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE6BB091C7E0681A344F68161E9EE246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ALKit;
+			target = F9E6D5C04D74F1040CE54AE8BE4A7DC7 /* ALKit */;
+			targetProxy = 46E540F7B80BC502B331BF7729F871C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DDA9071A1523EBEC8F1A392AF786C7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC0DC1969FF957233E3008974C2D2B9B /* ALKit.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ALKit/ALKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ALKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ALKit/ALKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ALKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		61E9C960176A58563D21517D299990A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		739DC1F250A2B136A5E527865CF5DA83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC0DC1969FF957233E3008974C2D2B9B /* ALKit.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ALKit/ALKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ALKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ALKit/ALKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ALKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A32EACCEAFE6C096E5B689CA1DCD50E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCF5E58E29AB53FEBBB6B760A4E8EEE7 /* Pods-TVOSButton.release.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TVOSButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TVOSButton/Pods-TVOSButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TVOSButton;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C332B185519D08E2641ECF2E00474E29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC2FF5660781C7C6F0EEDE2AA2ABBA51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 385CD5F27F6E4C45446192A3D934AB85 /* Pods-TVOSButton.debug.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TVOSButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TVOSButton/Pods-TVOSButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TVOSButton;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E9C960176A58563D21517D299990A4 /* Debug */,
+				C332B185519D08E2641ECF2E00474E29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FECCD839CA706246062C2EB633AE463 /* Build configuration list for PBXNativeTarget "Pods-TVOSButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC2FF5660781C7C6F0EEDE2AA2ABBA51 /* Debug */,
+				A32EACCEAFE6C096E5B689CA1DCD50E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD2F68BE9476CEE25BFA2C8DB6E7B8A4 /* Build configuration list for PBXNativeTarget "ALKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				739DC1F250A2B136A5E527865CF5DA83 /* Debug */,
+				1DDA9071A1523EBEC8F1A392AF786C7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
