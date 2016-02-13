@@ -24,19 +24,21 @@ public enum TVOSButtonLabel {
         alignment: alignment,
         shadow: shadow)
     case .DefaultText(let color):
+
       return TVOSButtonLabel.Custom(
         color: color,
         font: nil,
         alignment: nil,
         shadow: nil)
       .getStyle()
+
     case .DefaultTitle(let color):
       return TVOSButtonLabel.Custom(
         color: color,
         font: nil,
         alignment: nil,
         shadow: TVOSButtonShadow.Title)
-        .getStyle()
+      .getStyle()
     }
   }
 

@@ -24,6 +24,7 @@ public enum TVOSButtonShadow {
         opacity: opacity,
         radius: radius,
         path: path)
+
     case .Default(let x, let y, let r):
       return TVOSButtonShadowStyle(
         color: UIColor.blackColor(),
@@ -31,12 +32,27 @@ public enum TVOSButtonShadow {
         opacity: 0.4,
         radius: r,
         path: nil)
+
     case .Focused:
-      return TVOSButtonShadow.Default(offsetX: 0, offsetY: 5, radius: 10).getStyle()
+      return TVOSButtonShadow.Default(
+        offsetX: 0,
+        offsetY: 5,
+        radius: 10)
+      .getStyle()
+
     case .Highlighted:
-      return TVOSButtonShadow.Default(offsetX: 0, offsetY: 0, radius: 5).getStyle()
+      return TVOSButtonShadow.Default(
+        offsetX: 0,
+        offsetY: 0, 
+        radius: 5)
+      .getStyle()
+
     case .Title:
-      return TVOSButtonShadow.Default(offsetX: 0, offsetY: 2, radius: 3).getStyle()
+      return TVOSButtonShadow.Default(
+        offsetX: 0, 
+        offsetY: 2,
+        radius: 3)
+      .getStyle()
     }
   }
 
