@@ -8,29 +8,17 @@
 
 import UIKit
 
-public enum TVOSButtonImageGravity {
-  case Fill
-  case Fit
-  case Top
-  case Left
-  case Right
-  case Bottom
-}
 
 public enum TVOSButtonImage {
-  case Custom(gravity: TVOSButtonImageGravity?, size: CGSize?, offsets: UIEdgeInsets?, cornerRadius: CGFloat?, backgroundColor: UIColor?)
+  case Custom(contentMode: UIViewContentMode?, size: CGSize?, offsets: UIEdgeInsets?, cornerRadius: CGFloat?, backgroundColor: UIColor?)
   case Fill
   case Fit
-  case Top
-  case Left
-  case Right
-  case Bottom
 
   public func getStyle() -> TVOSButtonImageStyle {
     switch self {
-    case .Custom(let gravity, let size, let offsets, let cornerRadius, let backgroundColor):
+    case .Custom(let contentMode, let size, let offsets, let cornerRadius, let backgroundColor):
       return TVOSButtonImageStyle(
-        gravity: gravity,
+        contentMode: contentMode,
         size: size,
         offsets: offsets,
         cornerRadius: cornerRadius,
@@ -38,7 +26,7 @@ public enum TVOSButtonImage {
 
     case .Fill:
       return TVOSButtonImage.Custom(
-        gravity: .Fill,
+        contentMode: .ScaleAspectFill,
         size: nil,
         offsets: nil,
         cornerRadius: nil,
@@ -47,46 +35,10 @@ public enum TVOSButtonImage {
 
     case .Fit:
       return TVOSButtonImage.Custom(
-        gravity: .Fit,
+        contentMode: .ScaleAspectFit,
         size: nil,
         offsets: nil,
         cornerRadius: nil,
-        backgroundColor: nil)
-      .getStyle()
-
-    case .Top:
-      return TVOSButtonImage.Custom(
-        gravity: .Top,
-        size: nil,
-        offsets: UIEdgeInsets(inset: 40), 
-        cornerRadius: nil,
-        backgroundColor: nil)
-      .getStyle()
-
-    case .Left:
-      return TVOSButtonImage.Custom(
-        gravity: .Left,
-        size: nil,
-        offsets: UIEdgeInsets(inset: 40),
-        cornerRadius: nil,
-        backgroundColor: nil)
-      .getStyle()
-
-    case .Right:
-      return TVOSButtonImage.Custom(
-        gravity: .Right, 
-        size: nil, 
-        offsets: UIEdgeInsets(inset: 40), 
-        cornerRadius: nil, 
-        backgroundColor: nil)
-      .getStyle()
-
-    case .Bottom:
-      return TVOSButtonImage.Custom(
-        gravity: .Bottom,
-        size: nil,
-        offsets: UIEdgeInsets(inset: 40),
-        cornerRadius: nil, 
         backgroundColor: nil)
       .getStyle()
     }
@@ -113,7 +65,7 @@ public enum TVOSButtonImage {
 }
 
 public struct TVOSButtonImageStyle {
-  public var gravity: TVOSButtonImageGravity?
+  public var contentMode: UIViewContentMode?
   public var size: CGSize?
   public var offsets: UIEdgeInsets?
   public var cornerRadius: CGFloat?

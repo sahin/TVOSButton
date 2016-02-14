@@ -137,6 +137,7 @@ public class TVOSButton: UIButton {
 
   private(set) var tvosButtonState: TVOSButtonState = .Normal {
     didSet {
+      tvosButtonStateDidChangeAction?(tvosButtonState: tvosButtonState)
       tvosButtonStateDidChange()
     }
   }
@@ -175,12 +176,8 @@ public class TVOSButton: UIButton {
 
   // MARK: Actions
 
-  public var tvosButtonStateDidChangeAction: TVOSButtonStateDidChange? {
-    didSet {
-      tvosButtonStateDidChange()
-    }
-  }
-
+  public var tvosButtonStateDidChangeAction: TVOSButtonStateDidChange?
+  
   public var tvosButtonStyleForStateAction: TVOSButtonStyleForState? {
     didSet {
       tvosButtonStateDidChange()
@@ -240,6 +237,8 @@ public class TVOSButton: UIButton {
     tvosButton.fill(toView: self)
     tvosButtonBackgroundImageView.fill(toView: tvosButton)
     tvosCustomContentView.fill(toView: tvosButton)
+    tvosBadge.fill(toView: tvosButton)
+    tvosTextLabel.fill(toView: tvosButton)
     // add title constraints
     tvosTitleLabel.fillHorizontal(toView: self)
     tvosTitleLabel.pinHeight(50)
@@ -253,7 +252,6 @@ public class TVOSButton: UIButton {
   // MARK: State
 
   private func tvosButtonStateDidChange() {
-    tvosButtonStateDidChangeAction?(tvosButtonState: tvosButtonState)
     if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
       layoutIfNeeded()
       UIView.animateWithDuration(0.3,
@@ -281,124 +279,5 @@ public extension TVOSButton {
     } else if context.previouslyFocusedView == self {
       tvosButtonState = .Normal
     }
-  }
-}
-
-// MARK: - Layout
-
-public extension TVOSButton {
-
-  private func setupButtonContentConstraintsForBadgeStyle(badge: TVOSButtonImage?) {
-    // default constraints
-    func setupDefaultConstraints() {
-      tvosBadge.contentMode = .ScaleAspectFit
-      tvosBadge.fill(toView: tvosButton)
-      tvosTextLabel.fill(toView: tvosButton)
-    }
-
-    // Remove constraints
-    tvosTextLabel.removeConstraints(tvosTextLabel.constraints)
-    tvosBadge.removeConstraints(tvosBadge.constraints)
-
-    // get style
-    guard let badge = badge else { return setupDefaultConstraints() }
-    let style = badge.getStyle()
-    let gravity = style.gravity
-    let size = style.size
-    let offsets = style.offsets
-
-    // apply constraints for style
-    if let badgeGravity = gravity {
-      switch badgeGravity {
-      case .Fill:
-        tvosBadge.contentMode = .ScaleAspectFill
-        tvosBadge.fill(toView: tvosButton)
-        tvosTextLabel.fill(toView: tvosButton)
-
-      case .Top:
-        tvosBadge.contentMode = .ScaleAspectFit
-        switch (size, offsets) {
-        case (.Some(let s), .Some(let o)):
-          tvosBadge.pinTop(toView: tvosButton, withInset: o.top)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        case (.Some(let s), .None):
-          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        default:
-          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.fillHorizontal(toView: tvosButton)
-          tvosBadge.pinToTop(ofView: tvosTextLabel, withOffset: offsets?.bottom ?? 0)
-        }
-        tvosTextLabel.fillHorizontal(toView: tvosButton)
-        tvosTextLabel.pinBottom(toView: tvosButton)
-
-      case .Left:
-        tvosBadge.contentMode = .ScaleAspectFit
-        switch (size, offsets) {
-        case (.Some(let s), .Some(let o)):
-          tvosBadge.pinLeft(toView: tvosButton, withInset: o.left)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        case (.Some(let s), .None):
-          tvosBadge.pinLeft(toView: tvosButton)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        default:
-          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.pinLeft(toView: tvosButton, withInset: offsets?.left ?? 0)
-          tvosBadge.pinBottom(toView: tvosButton, withInset: offsets?.bottom ?? 0)
-          tvosBadge.pinToLeft(ofView: tvosTextLabel, withOffset: offsets?.right ?? 0)
-        }
-        tvosTextLabel.pinTop(toView: tvosButton)
-        tvosTextLabel.pinRight(toView: tvosButton)
-        tvosTextLabel.pinBottom(toView: tvosButton)
-
-      case .Right:
-        tvosBadge.contentMode = .ScaleAspectFit
-        switch (size, offsets) {
-        case (.Some(let s), .Some(let o)):
-          tvosBadge.pinRight(toView: tvosButton, withInset: o.right)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        case (.Some(let s), .None):
-          tvosBadge.pinRight(toView: tvosButton)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        default:
-          tvosBadge.pinTop(toView: tvosButton, withInset: offsets?.top ?? 0)
-          tvosBadge.pinRight(toView: tvosButton, withInset: offsets?.right ?? 0)
-          tvosBadge.pinBottom(toView: tvosButton, withInset: offsets?.bottom ?? 0)
-          tvosBadge.pinToRight(ofView: tvosButton, withOffset: offsets?.right ?? 0)
-        }
-        tvosTextLabel.pinTop(toView: tvosButton)
-        tvosTextLabel.pinLeft(toView: tvosButton)
-        tvosTextLabel.pinBottom(toView: tvosButton)
-
-      case .Bottom:
-        tvosBadge.contentMode = .ScaleAspectFit
-        switch (size, offsets) {
-        case (.Some(let s), .Some(let o)):
-          tvosBadge.pinBottom(toView: tvosButton, withInset: o.bottom)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        case (.Some(let s), .None):
-          tvosBadge.pinBottom(toView: tvosButton)
-          tvosBadge.pinSize(width: s.width, height: s.height)
-        default:
-          tvosBadge.fillHorizontal(toView: tvosButton, withInset: offsets?.left ?? 0)
-          tvosBadge.pinBottom(toView: tvosButton)
-          tvosBadge.pinToTop(ofView: tvosTextLabel, withOffset: offsets?.top ?? 0)
-        }
-        tvosTextLabel.pinTop(toView: tvosButton)
-        tvosTextLabel.fillHorizontal(toView: tvosButton)
-
-      default:
-        setupDefaultConstraints()
-      }
-    } else {
-      setupDefaultConstraints()
-    }
-  }
-
-  public override func updateConstraints() {
-    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
-      setupButtonContentConstraintsForBadgeStyle(style.badgeStyle)
-    }
-    super.updateConstraints()
   }
 }

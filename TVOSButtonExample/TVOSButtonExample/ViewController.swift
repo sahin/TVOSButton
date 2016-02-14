@@ -30,7 +30,7 @@ class ViewController: UIViewController {
           scale: 1.1,
           shadow: TVOSButtonShadow.Focused,
           contentView: nil,
-          badgeStyle: nil,
+          badgeStyle: TVOSButtonImage.Right,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
           titleStyle: nil)
 
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
           scale: 0.9, 
           shadow: TVOSButtonShadow.Highlighted, 
           contentView: nil,
-          badgeStyle: nil, 
+          badgeStyle: TVOSButtonImage.Left,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
           titleStyle: nil)
 
@@ -54,26 +54,15 @@ class ViewController: UIViewController {
           scale: nil,
           shadow: nil,
           contentView: nil,
-          badgeStyle: nil,
+          badgeStyle: TVOSButtonImage.Top,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.whiteColor()), 
           titleStyle: nil)
       }
     }
 
     // Setup content
-    button.tvosButtonStateDidChangeAction = { state in
-      switch state {
-      case .Focused:
-        self.button.textLabelText = "Focused"
-        self.button.badgeImage = nil
-      case .Highlighted:
-        self.button.textLabelText = "High"
-        self.button.badgeImage = UIImage(named: "share")
-      default:
-        self.button.textLabelText = "Button"
-        self.button.badgeImage = nil
-      }
-    }
+    button.badgeImage = UIImage(named: "share")
+    button.textLabelText = "Button"
   }
 
   // Event handler
