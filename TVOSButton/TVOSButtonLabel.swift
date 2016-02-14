@@ -52,6 +52,9 @@ public enum TVOSButtonLabel {
 
   public static func resetStyle(onLabel label: UILabel) {
     TVOSButtonShadow.resetStyle(onLayer: label.layer)
+    label.textColor = UIColor.whiteColor()
+    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    label.textAlignment = .Center
   }
 }
 

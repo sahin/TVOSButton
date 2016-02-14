@@ -53,7 +53,7 @@ class ExampleButton: TVOSButton {
         contentView: nil,
         badgeStyle: TVOSButtonImage.Fit,
         textStyle: TVOSButtonLabel.DefaultText(color: UIColor.whiteColor()),
-        titleStyle: nil)
+        titleStyle: TVOSButtonLabel.DefaultTitle(color: UIColor.blackColor()))
     }
   }
 }
@@ -65,10 +65,10 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Add target
-    button.addTarget(self, action: "tvosButtonPressed", forControlEvents: .PrimaryActionTriggered)
-    // Setup content
+    // Setup button
     button.textLabelText = "Button"
+    button.titleLabelText = "Title"
+    button.addTarget(self, action: "tvosButtonPressed", forControlEvents: .PrimaryActionTriggered)
   }
 
   // Event handler
