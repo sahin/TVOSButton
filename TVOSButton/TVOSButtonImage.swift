@@ -53,7 +53,7 @@ public enum TVOSButtonImage {
     case .Fill(_):
       imageView.contentMode = .ScaleAspectFill
     default:
-      imageView.contentMode = .ScaleAspectFit
+      imageView.contentMode = .Center
     }
   }
 

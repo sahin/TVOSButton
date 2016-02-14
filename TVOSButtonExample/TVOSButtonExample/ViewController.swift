@@ -30,7 +30,7 @@ class ViewController: UIViewController {
           scale: 1.1,
           shadow: TVOSButtonShadow.Focused,
           contentView: nil,
-          badgeStyle: TVOSButtonImage.Right,
+          badgeStyle: TVOSButtonImage.Fit,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
           titleStyle: nil)
 
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
           scale: 0.9, 
           shadow: TVOSButtonShadow.Highlighted, 
           contentView: nil,
-          badgeStyle: TVOSButtonImage.Left,
+          badgeStyle: TVOSButtonImage.Fit,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
           titleStyle: nil)
 
@@ -54,14 +54,14 @@ class ViewController: UIViewController {
           scale: nil,
           shadow: nil,
           contentView: nil,
-          badgeStyle: TVOSButtonImage.Top,
+          badgeStyle: TVOSButtonImage.Fit,
           textStyle: TVOSButtonLabel.DefaultText(color: UIColor.whiteColor()), 
           titleStyle: nil)
       }
     }
 
     // Setup content
-    button.badgeImage = UIImage(named: "share")
+    button.badgeImage = UIImage(named: "shareSmall")
     button.textLabelText = "Button"
   }
 
