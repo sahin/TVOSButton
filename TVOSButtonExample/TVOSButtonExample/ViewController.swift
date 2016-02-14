@@ -58,7 +58,6 @@ class ExampleButton: TVOSButton {
   }
 }
 
-
 class ViewController: UIViewController {
 
   @IBOutlet var button: ExampleButton!
