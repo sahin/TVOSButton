@@ -120,9 +120,6 @@ public struct TVOSButtonStyle {
 
 // MARK: - TVOSButton
 
-public typealias TVOSButtonStateDidChange = (tvosButtonState: TVOSButtonState) -> Void
-public typealias TVOSButtonStyleForState = (tvosButtonState: TVOSButtonState) -> TVOSButtonStyle
-
 public class TVOSButton: UIButton {
 
   // MARK: Private Properties
@@ -137,8 +134,7 @@ public class TVOSButton: UIButton {
 
   private(set) var tvosButtonState: TVOSButtonState = .Normal {
     didSet {
-      tvosButtonStateDidChangeAction?(tvosButtonState: tvosButtonState)
-      tvosButtonStateDidChange()
+      handleStateDidChange()
     }
   }
 
@@ -174,26 +170,7 @@ public class TVOSButton: UIButton {
     }
   }
 
-  // MARK: Actions
-
-  public var tvosButtonStateDidChangeAction: TVOSButtonStateDidChange?
-  
-  public var tvosButtonStyleForStateAction: TVOSButtonStyleForState? {
-    didSet {
-      tvosButtonStateDidChange()
-    }
-  }
-
   // MARK: Init
-
-  public init(frame: CGRect,
-    styleForState: TVOSButtonStyleForState? = nil,
-    stateDidChange: TVOSButtonStateDidChange? = nil) {
-    super.init(frame: frame)
-    tvosButtonStyleForStateAction = styleForState
-    tvosButtonStateDidChangeAction = stateDidChange
-    commonInit()
-  }
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -246,13 +223,32 @@ public class TVOSButton: UIButton {
     addConstraint(tvosTitleLabelTopConstraint)
     // finalize
     layer.masksToBounds = false
-    tvosButtonStateDidChange()
+    handleStateDidChange()
   }
 
-  // MARK: State
+  // MARK: Focus
 
-  private func tvosButtonStateDidChange() {
-    if let style = tvosButtonStyleForStateAction?(tvosButtonState: tvosButtonState) {
+  public override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+    if context.nextFocusedView == self {
+      tvosButtonState = .Focused
+    } else if context.previouslyFocusedView == self {
+      tvosButtonState = .Normal
+    }
+  }
+
+  // MARK: Handlers
+
+  /// Override this function if you want to get notified about state changes.
+  public func tvosButtonStateDidChange(tvosButtonState: TVOSButtonState) { }
+
+  /// Override this function for style your subclass TVOSButton.
+  public func tvosButtonStyleForState(tvosButtonState: TVOSButtonState) -> TVOSButtonStyle? {
+    return nil
+  }
+
+  private func handleStateDidChange() {
+    tvosButtonStateDidChange(tvosButtonState)
+    if let style = tvosButtonStyleForState(tvosButtonState) {
       layoutIfNeeded()
       UIView.animateWithDuration(0.3,
         delay: 0,
@@ -265,19 +261,6 @@ public class TVOSButton: UIButton {
           self.layoutIfNeeded()
         },
         completion: nil)
-    }
-  }
-}
-
-// MARK: - Focus
-
-public extension TVOSButton {
-
-  public override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-    if context.nextFocusedView == self {
-      tvosButtonState = .Focused
-    } else if context.previouslyFocusedView == self {
-      tvosButtonState = .Normal
     }
   }
 }
