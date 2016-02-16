@@ -16,20 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-ym-lIB" userLabel="TVOSButton" customClass="ExampleButton" customModule="TVOSButtonExample">
-                                <rect key="frame" x="346" y="306" width="596" height="277"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-sj-cCJ">
-                                <rect key="frame" x="1108" y="497" width="195" height="86"/>
+                                <rect key="frame" x="811" y="773" width="298" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="UIButton :("/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cop-cB-BF6" userLabel="ToggleButton" customClass="TVOSToggleButton" customModule="TVOSButton">
+                                <rect key="frame" x="811" y="499" width="298" height="102"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-ym-lIB" userLabel="TVOSButton" customClass="TVOSButton" customModule="TVOSButton">
+                                <rect key="frame" x="811" y="222" width="298" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="OX8-ym-lIB" id="f8r-GS-F2b"/>
+                        <outlet property="button" destination="OX8-ym-lIB" id="pec-Et-7tu"/>
+                        <outlet property="toggleButton" destination="cop-cB-BF6" id="Mtc-aX-5YE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

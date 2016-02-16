@@ -13,9 +13,9 @@ public enum TVOSButtonShadow {
   case Default(offsetX: CGFloat, offsetY: CGFloat, radius: CGFloat)
   case Focused
   case Highlighted
-  case Title
+  case TitleLabel
 
-  public func getStyle() -> TVOSButtonShadowStyle {
+  public func getStyle(withHeight height: CGFloat) -> TVOSButtonShadowStyle {
     switch self {
     case .Custom(let color, let offset, let opacity, let radius, let path):
       return TVOSButtonShadowStyle(
@@ -29,35 +29,36 @@ public enum TVOSButtonShadow {
       return TVOSButtonShadowStyle(
         color: UIColor.blackColor(),
         offset: CGSize(width: x, height: y),
-        opacity: 0.4,
+        opacity: 0.2,
         radius: r,
         path: nil)
 
     case .Focused:
       return TVOSButtonShadow.Default(
         offsetX: 0,
-        offsetY: 5,
+        offsetY: 25,
         radius: 10)
-      .getStyle()
+        .getStyle(withHeight: height)
 
     case .Highlighted:
       return TVOSButtonShadow.Default(
         offsetX: 0,
-        offsetY: 0, 
-        radius: 5)
-      .getStyle()
+        offsetY: 5,
+        radius: 10)
+        .getStyle(withHeight: height)
 
-    case .Title:
+    case .TitleLabel:
       return TVOSButtonShadow.Default(
-        offsetX: 0, 
+        offsetX: 0,
         offsetY: 2,
         radius: 3)
-      .getStyle()
+      .getStyle(withHeight: height)
     }
   }
 
-  public func applyStyle(onLayer layer: CALayer) {
-    let style = getStyle()
+  public func applyStyle(onLayer layer: CALayer?) {
+    guard let layer = layer else { return }
+    let style = getStyle(withHeight: layer.frame.height)
     layer.shadowColor = style.color?.CGColor
     layer.shadowOffset = style.offset ?? CGSize.zero
     layer.shadowOpacity = style.opacity ?? 1
@@ -65,7 +66,8 @@ public enum TVOSButtonShadow {
     layer.shadowRadius = style.radius ?? 0
   }
 
-  public static func resetStyle(onLayer layer: CALayer) {
+  public static func resetStyle(onLayer layer: CALayer?) {
+    guard let layer = layer else { return }
     layer.shadowColor = nil
     layer.shadowOffset = CGSize.zero
     layer.shadowOpacity = 0

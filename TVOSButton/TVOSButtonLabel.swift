@@ -23,8 +23,8 @@ public enum TVOSButtonLabel {
         font: font,
         alignment: alignment,
         shadow: shadow)
-    case .DefaultText(let color):
 
+    case .DefaultText(let color):
       return TVOSButtonLabel.Custom(
         color: color,
         font: nil,
@@ -35,14 +35,15 @@ public enum TVOSButtonLabel {
     case .DefaultTitle(let color):
       return TVOSButtonLabel.Custom(
         color: color,
-        font: nil,
+        font: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
         alignment: nil,
-        shadow: TVOSButtonShadow.Title)
+        shadow: TVOSButtonShadow.TitleLabel)
       .getStyle()
     }
   }
 
-  public func applyStyle(onLabel label: UILabel) {
+  public func applyStyle(onLabel label: UILabel?) {
+    guard let label = label else { return }
     let style = getStyle()
     style.shadow?.applyStyle(onLayer: label.layer)
     label.textColor = style.color ?? UIColor.whiteColor()
@@ -50,7 +51,8 @@ public enum TVOSButtonLabel {
     label.textAlignment = style.alignment ?? .Center
   }
 
-  public static func resetStyle(onLabel label: UILabel) {
+  public static func resetStyle(onLabel label: UILabel?) {
+    guard let label = label else { return }
     TVOSButtonShadow.resetStyle(onLayer: label.layer)
     label.textColor = UIColor.whiteColor()
     label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)

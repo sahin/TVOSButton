@@ -44,7 +44,8 @@ public enum TVOSButtonImage {
     }
   }
 
-  public func applyStyle(onImageView imageView: UIImageView) {
+  public func applyStyle(onImageView imageView: UIImageView?) {
+    guard let imageView = imageView else { return }
     let style = getStyle()
     imageView.backgroundColor = style.backgroundColor
     imageView.layer.cornerRadius = style.cornerRadius ?? 0
@@ -57,7 +58,8 @@ public enum TVOSButtonImage {
     }
   }
 
-  public static func resetStyle(onImageView imageView: UIImageView) {
+  public static func resetStyle(onImageView imageView: UIImageView?) {
+    guard let imageView = imageView else { return }
     imageView.image = nil
     imageView.backgroundColor = nil
     imageView.layer.cornerRadius = 0

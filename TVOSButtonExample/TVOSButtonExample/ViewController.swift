@@ -9,65 +9,73 @@
 import UIKit
 import TVOSButton
 
-// Just override `tvosButtonStateDidChange` and `tvosButtonStyleForState:tvosButtonState:` functions
-
-class ExampleButton: TVOSButton {
-
-  override func tvosButtonStateDidChange(tvosButtonState: TVOSButtonState) {
-    print("\(tvosButtonState)")
-  }
-
-  override func tvosButtonStyleForState(tvosButtonState: TVOSButtonState) -> TVOSButtonStyle? {
-    switch tvosButtonState {
-    case .Focused:
-      return TVOSButtonStyle(
-        backgroundColor: UIColor.whiteColor(),
-        backgroundImage: nil,
-        cornerRadius: 10,
-        scale: 1.1,
-        shadow: TVOSButtonShadow.Focused,
-        contentView: nil,
-        badgeStyle: TVOSButtonImage.Fit,
-        textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
-        titleStyle: nil)
-
-    case .Highlighted:
-      return TVOSButtonStyle(
-        backgroundColor: UIColor.whiteColor(),
-        backgroundImage: nil,
-        cornerRadius: 10,
-        scale: 0.9,
-        shadow: TVOSButtonShadow.Highlighted,
-        contentView: nil,
-        badgeStyle: TVOSButtonImage.Fit,
-        textStyle: TVOSButtonLabel.DefaultText(color: UIColor.blackColor()),
-        titleStyle: nil)
-
-    default:
-      return TVOSButtonStyle(
-        backgroundColor: UIColor.redColor(),
-        backgroundImage: nil,
-        cornerRadius: 10,
-        scale: nil,
-        shadow: nil,
-        contentView: nil,
-        badgeStyle: TVOSButtonImage.Fit,
-        textStyle: TVOSButtonLabel.DefaultText(color: UIColor.whiteColor()),
-        titleStyle: TVOSButtonLabel.DefaultTitle(color: UIColor.blackColor()))
-    }
-  }
-}
-
 class ViewController: UIViewController {
 
-  @IBOutlet var button: ExampleButton!
+  @IBOutlet var button: TVOSButton!
+  @IBOutlet var toggleButton: TVOSToggleButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     // Setup button
-    button.textLabelText = "Button"
+    button.textLabelText = "TVOSButton"
     button.titleLabelText = "Title"
     button.addTarget(self, action: "tvosButtonPressed", forControlEvents: .PrimaryActionTriggered)
+
+    // Setup toggleButton
+    toggleButton.didToggledAction = toggleButtonDidToggledActionHandler
+    toggleButton.toggleState = .Waiting(text: "...")
+    requestSomething({
+      self.toggleButton.toggleState = .On(text: "Add")
+    }, failure: {
+      self.toggleButton.toggleState = .Off(text: "Remove")
+    })
+  }
+
+  func toggleButtonDidToggledActionHandler(
+    currentState: TVOSToggleButtonState,
+    updateNewState: (newState: TVOSToggleButtonState) -> Void) {
+      switch currentState {
+      case .Waiting(let text):
+        toggleButton.textLabelText = text
+
+      case .On(let text):
+        toggleButton.textLabelText = text
+        updateNewState(newState: .Waiting(text: "Adding"))
+        removeSomething({
+          updateNewState(newState: .Off(text: "Remove"))
+        }, failure: {
+          updateNewState(newState: .On(text: "Add"))
+        })
+
+      case .Off(let text):
+        toggleButton.textLabelText = text
+        updateNewState(newState: .Waiting(text: "Removing"))
+        addSomethingToServer({
+          updateNewState(newState: .On(text: "Add"))
+        }, failure: {
+          updateNewState(newState: .Off(text: "Remove"))
+        })
+      }
+  }
+
+  // Example request methods for simulate waiting for network
+
+  func addSomethingToServer(success: () -> Void, failure: () -> Void) {
+    requestSomething(success, failure: failure)
+  }
+
+  func removeSomething(success: () -> Void, failure: () -> Void) {
+    requestSomething(success, failure: failure)
+  }
+
+  func requestSomething(success: () -> Void, failure: () -> Void) {
+    dispatch_after(
+      dispatch_time(
+        DISPATCH_TIME_NOW,
+        Int64(0.5 * Double(NSEC_PER_SEC))
+      ),
+      dispatch_get_main_queue(), success)
   }
 
   // Event handler
