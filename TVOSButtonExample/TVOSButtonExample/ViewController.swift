@@ -24,37 +24,43 @@ class ViewController: UIViewController {
 
     // Setup toggleButton
     toggleButton.didToggledAction = toggleButtonDidToggledActionHandler
-    toggleButton.toggleState = .Waiting(text: "...")
-    requestSomething({
-      self.toggleButton.toggleState = .On(text: "Add")
-    }, failure: {
-      self.toggleButton.toggleState = .Off(text: "Remove")
-    })
+    toggleButton.toggleState = .On
   }
 
   func toggleButtonDidToggledActionHandler(
     currentState: TVOSToggleButtonState,
     updateNewState: (newState: TVOSToggleButtonState) -> Void) {
       switch currentState {
-      case .Waiting(let text):
-        toggleButton.textLabelText = text
-
-      case .On(let text):
-        toggleButton.textLabelText = text
-        updateNewState(newState: .Waiting(text: "Adding"))
-        removeSomething({
-          updateNewState(newState: .Off(text: "Remove"))
+      case .Waiting:
+        toggleButton.textLabelText = "..."
+        requestSomething({
+        self.toggleButton.textLabelText = "Add"
+        self.toggleButton.toggleState = .On
         }, failure: {
-          updateNewState(newState: .On(text: "Add"))
+          self.toggleButton.textLabelText = "Remove"
+          self.toggleButton.toggleState = .Off
         })
 
-      case .Off(let text):
-        toggleButton.textLabelText = text
-        updateNewState(newState: .Waiting(text: "Removing"))
-        addSomethingToServer({
-          updateNewState(newState: .On(text: "Add"))
+      case .On:
+        toggleButton.textLabelText = "Adding"
+        updateNewState(newState: .Waiting)
+        removeSomething({
+          self.toggleButton.textLabelText = "Remove"
+          updateNewState(newState: .Off)
         }, failure: {
-          updateNewState(newState: .Off(text: "Remove"))
+          self.toggleButton.textLabelText = "Add"
+          updateNewState(newState: .On)
+        })
+
+      case .Off:
+        toggleButton.textLabelText = "Removing"
+        updateNewState(newState: .Waiting)
+        addSomethingToServer({
+          self.toggleButton.textLabelText = "Add"
+          updateNewState(newState: .On)
+        }, failure: {
+          self.toggleButton.textLabelText = "Remove"
+          updateNewState(newState: .Off)
         })
       }
   }

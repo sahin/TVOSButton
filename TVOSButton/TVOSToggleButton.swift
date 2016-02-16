@@ -11,19 +11,19 @@ import UIKit
 public typealias TVOSToggleButtonDidToggledAction = (currentState: TVOSToggleButtonState, newState: (newState: TVOSToggleButtonState) -> Void) -> Void
 
 public enum TVOSToggleButtonState {
-  case Waiting(text: String?)
-  case On(text: String?)
-  case Off(text: String?)
+  case Waiting
+  case On
+  case Off
 }
 
 public class TVOSToggleButton: TVOSButton {
 
   // MARK; Properties
 
-  public var didToggledAction: TVOSToggleButtonDidToggledAction?
-  public var toggleState: TVOSToggleButtonState = .Waiting(text: nil) {
+  public var toggleState: TVOSToggleButtonState = .Waiting
+  public var didToggledAction: TVOSToggleButtonDidToggledAction? {
     didSet {
-      toggleStateDidChange()
+      didToggled(self)
     }
   }
 
@@ -48,7 +48,6 @@ public class TVOSToggleButton: TVOSButton {
 
   public func commonInit() {
     addTarget(self, action: "didToggled:", forControlEvents: .PrimaryActionTriggered)
-    toggleStateDidChange()
   }
 
   // MARK: Toggle
@@ -59,16 +58,5 @@ public class TVOSToggleButton: TVOSButton {
       newState: { state in
         self.toggleState = state
       })
-  }
-
-  private func toggleStateDidChange() {
-    switch toggleState {
-    case .Waiting(let text):
-      textLabelText = text
-    case .On(let text):
-      textLabelText = text
-    case .Off(let text):
-      textLabelText = text
-    }
   }
 }
