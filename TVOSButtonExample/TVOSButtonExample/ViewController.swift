@@ -24,7 +24,6 @@ class ViewController: UIViewController {
 
     // Setup toggleButton
     toggleButton.didToggledAction = toggleButtonDidToggledActionHandler
-    toggleButton.toggleState = .On
   }
 
   func toggleButtonDidToggledActionHandler(
