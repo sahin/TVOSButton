@@ -21,11 +21,11 @@ pod 'TVOSButton'
 Usage
 ----
 
-Since TVOSButton is built top on UIButton, its really super easy to create one with either programmatically or trough the code.
+Since TVOSButton is built top on UIButton, its really super easy to create one with either programmatically or trough the storyboard.
   
 `TVOSButtonStyle` is the key player of your buttons appearance.  
 `tvosButtonStyleForState:` function called when the `TVOSButtonState` is changed.  
-So you can create dynamically change it on runtime.
+So you can create dynamically change buttons on runtime.
   
 Overriding `tvosButtonStyleForState:` function will enough for most cases in your `TVOSButton` subclasses. Detailed examples available in the project.
    
