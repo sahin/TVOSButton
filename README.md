@@ -24,14 +24,14 @@ Usage
 Since TVOSButton is built top on UIButton, its really super easy to create one with either programmatically or trough the code.
   
 `TVOSButtonStyle` is the key player of your buttons appearance.  
-`tvosButtonStyleForState:` function called when the `TVOSButtonState` is changed.
+`tvosButtonStyleForState:` function called when the `TVOSButtonState` is changed.  
 So you can create dynamically change it on runtime.
   
-Overriding `tvosButtonStyleForState:` function is enough in most cases in your `TVOSButton` subclasses. Detailed examples available in the project.
+Overriding `tvosButtonStyleForState:` function will enough for most cases in your `TVOSButton` subclasses. Detailed examples available in the project.
    
 If you don't use any style, it will render default style just like `UIButtonType.System`.
   
-Here is the code of example `IconButton` in the example project.
+Here is the code of example `IconButton` subclass in the example project.
 
 ``` swift
 class IconButton: TVOSButton {
