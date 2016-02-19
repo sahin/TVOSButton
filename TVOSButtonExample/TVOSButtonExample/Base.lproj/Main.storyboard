@@ -16,24 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-sj-cCJ">
-                                <rect key="frame" x="811" y="773" width="298" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="UIButton :("/>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cop-cB-BF6" userLabel="ToggleButton" customClass="TVOSToggleButton" customModule="TVOSButton">
-                                <rect key="frame" x="811" y="499" width="298" height="102"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPb-57-H8A" userLabel="posterButton" customClass="PosterButton" customModule="TVOSButtonExample">
+                                <rect key="frame" x="283" y="360" width="240" height="360"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-ym-lIB" userLabel="TVOSButton" customClass="TVOSButton" customModule="TVOSButton">
-                                <rect key="frame" x="811" y="222" width="298" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cop-cB-BF6" userLabel="toggleButton" customClass="TVOSToggleButton" customModule="TVOSButton">
+                                <rect key="frame" x="811" y="489" width="300" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY6-YX-U9Q" userLabel="iconButton" customClass="IconButton" customModule="TVOSButtonExample">
+                                <rect key="frame" x="1403" y="489" width="300" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="OX8-ym-lIB" id="pec-Et-7tu"/>
+                        <outlet property="iconButton" destination="VY6-YX-U9Q" id="tW5-On-D51"/>
+                        <outlet property="posterButton" destination="tPb-57-H8A" id="hZM-ka-KiG"/>
                         <outlet property="toggleButton" destination="cop-cB-BF6" id="Mtc-aX-5YE"/>
                     </connections>
                 </viewController>

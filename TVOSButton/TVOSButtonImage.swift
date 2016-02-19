@@ -10,27 +10,30 @@ import UIKit
 
 
 public enum TVOSButtonImage {
-  case Custom(contentMode: UIViewContentMode?, size: CGSize?, offsets: UIEdgeInsets?, cornerRadius: CGFloat?, backgroundColor: UIColor?)
-  case Fill
+  case Custom(contentMode: UIViewContentMode?, size: CGSize?, offsets: UIEdgeInsets?, cornerRadius: CGFloat?, backgroundColor: UIColor?,
+    adjustsImageWhenAncestorFocused: Bool?)
+  case Fill(adjustsImageWhenAncestorFocused: Bool?)
   case Fit
 
   public func getStyle() -> TVOSButtonImageStyle {
     switch self {
-    case .Custom(let contentMode, let size, let offsets, let cornerRadius, let backgroundColor):
+    case .Custom(let contentMode, let size, let offsets, let cornerRadius, let backgroundColor, let adjustsImageWhenAncestorFocused):
       return TVOSButtonImageStyle(
         contentMode: contentMode,
         size: size,
         offsets: offsets,
         cornerRadius: cornerRadius,
-        backgroundColor: backgroundColor)
+        backgroundColor: backgroundColor,
+        adjustsImageWhenAncestorFocused: adjustsImageWhenAncestorFocused)
 
-    case .Fill:
+    case .Fill(let adjustsImageWhenAncestorFocused):
       return TVOSButtonImage.Custom(
         contentMode: .ScaleAspectFill,
         size: nil,
         offsets: nil,
         cornerRadius: nil,
-        backgroundColor: nil)
+        backgroundColor: nil,
+        adjustsImageWhenAncestorFocused: adjustsImageWhenAncestorFocused)
       .getStyle()
 
     case .Fit:
@@ -39,7 +42,8 @@ public enum TVOSButtonImage {
         size: nil,
         offsets: nil,
         cornerRadius: nil,
-        backgroundColor: nil)
+        backgroundColor: nil,
+        adjustsImageWhenAncestorFocused: false)
       .getStyle()
     }
   }
@@ -48,6 +52,7 @@ public enum TVOSButtonImage {
     guard let imageView = imageView else { return }
     let style = getStyle()
     imageView.backgroundColor = style.backgroundColor
+    imageView.adjustsImageWhenAncestorFocused = style.adjustsImageWhenAncestorFocused ?? false
     imageView.layer.cornerRadius = style.cornerRadius ?? 0
     imageView.layer.masksToBounds = true
     switch self {
@@ -72,4 +77,5 @@ public struct TVOSButtonImageStyle {
   public var offsets: UIEdgeInsets?
   public var cornerRadius: CGFloat?
   public var backgroundColor: UIColor?
+  public var adjustsImageWhenAncestorFocused: Bool?
 }

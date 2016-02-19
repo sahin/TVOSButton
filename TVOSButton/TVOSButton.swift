@@ -72,12 +72,11 @@ public struct TVOSButtonStyle {
     }
 
     // content view
+    for subview in button.tvosCustomContentView?.subviews ?? [] {
+      subview.removeFromSuperview()
+    }
     if let contentView = contentView {
       button.tvosCustomContentView?.addSubview(contentView)
-    } else {
-      for subview in button.tvosCustomContentView?.subviews ?? [] {
-        subview.removeFromSuperview()
-      }
     }
 
     // badge
