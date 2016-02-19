@@ -1,6 +1,23 @@
 TVOSButton
 ===
 
-Missing button component of tvos
+Missing button component of tvos.  
+Built top on UIButton.  
+Super easy to style, super easy to subclass.  
 
-🚧 Work in Progress 🚧
+Demo
+----
+![alt tag](https://raw.githubusercontent.com/movielala/TVOSButton/master/demo.gif)
+
+Installation
+----
+
+#### CocoaPods
+
+``` ruby
+pod 'TVOSButton'
+```
+
+Usage
+----
+
