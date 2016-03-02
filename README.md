@@ -126,3 +126,11 @@ public enum TVOSButtonState {
   case Disabled
 }
 ```
+
+
+### Authors
+* [Cem Olcay](https://github.com/cemolcay)
+
+### Other tvOS projects
+* [TVOSSlideViewController](https://github.com/movielala/TVOSSlideViewController)
+* [TVOSToast](https://github.com/movielala/TVOSToast)
