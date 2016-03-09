@@ -1,4 +1,4 @@
-TVOSButton
+TVOSButton [![codebeat](https://codebeat.co/badges/dbc8a169-fc43-4fbb-aca6-2976d41587c7)](https://codebeat.co/projects/github-com-movielala-tvosbutton)
 ===
 
 Missing button component of tvos.  
